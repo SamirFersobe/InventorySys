@@ -21,5 +21,15 @@ namespace KaihatsuEnshuu
         {
 
         }
+
+        private void addproduct_Click(object sender, EventArgs e)
+        {
+            // adds product to the database
+        }
+
+        private void cancelProduct_Click(object sender, EventArgs e)
+        {
+            //closes window and returns to home page
+        }
     }
 }
