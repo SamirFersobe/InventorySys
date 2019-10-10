@@ -10,26 +10,29 @@ using System.Windows.Forms;
 
 namespace KaihatsuEnshuu
 {
-    public partial class Order : Form
+    public partial class StockForm : Form
     {
-        public Order()
+        public StockForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void stockForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void addproduct_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            // adds product to the database
+            //close this window
+            this.Close();
         }
 
-        private void cancelProduct_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //closes window and returns to home page
+
+            //add items
+            this.Close();
         }
     }
 }

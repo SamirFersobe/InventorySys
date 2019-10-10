@@ -1,6 +1,6 @@
 ﻿namespace KaihatsuEnshuu
 {
-    partial class stockmanagement
+    partial class StockForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,9 +35,9 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ProductName = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -48,6 +48,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "キャンセル";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -57,6 +58,7 @@
             this.button1.TabIndex = 24;
             this.button1.Text = "追加";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -96,26 +98,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(253, 151);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 15);
+            this.label3.Size = new System.Drawing.Size(36, 15);
             this.label3.TabIndex = 19;
-            this.label3.Text = "色";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "商品名";
-            // 
-            // ProductName
-            // 
-            this.ProductName.FormattingEnabled = true;
-            this.ProductName.Location = new System.Drawing.Point(350, 99);
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Size = new System.Drawing.Size(121, 23);
-            this.ProductName.TabIndex = 17;
+            this.label3.Text = "色ID";
             // 
             // comboBox1
             // 
@@ -125,11 +110,28 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 16;
             // 
-            // stockmanagement
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(253, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "商品ID";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(350, 71);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 22);
+            this.textBox2.TabIndex = 26;
+            // 
+            // StockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
@@ -138,10 +140,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ProductName);
             this.Controls.Add(this.comboBox1);
-            this.Name = "stockmanagement";
-            this.Text = "stockmanagement";
+            this.Name = "StockForm";
+            this.Text = "stockForm";
+            this.Load += new System.EventHandler(this.stockForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,8 +158,8 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox ProductName;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

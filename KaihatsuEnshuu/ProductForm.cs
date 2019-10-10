@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace KaihatsuEnshuu
 {
-    public partial class stockmanagement : Form
+    public partial class ProductForm : Form
     {
-        public stockmanagement()
+        public ProductForm()
         {
             InitializeComponent();
+        }
+
+        private void addproduct_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cancelProduct_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
