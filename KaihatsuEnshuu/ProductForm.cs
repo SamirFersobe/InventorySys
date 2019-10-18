@@ -19,12 +19,25 @@ namespace KaihatsuEnshuu
 
         private void addproduct_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+
+
+
+            
         }
 
         private void cancelProduct_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ProductForm_Load(object sender, EventArgs e)
+        {
+            // TODO: このコード行はデータを '販売在庫管理システムDBDataSet.テーブル2' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.テーブル2TableAdapter.Fill(this.販売在庫管理システムDBDataSet.テーブル2);
+            // TODO: このコード行はデータを '販売在庫管理システムDBDataSet.テーブル1' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.テーブル1TableAdapter.Fill(this.販売在庫管理システムDBDataSet.テーブル1);
+
         }
     }
 }

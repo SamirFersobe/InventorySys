@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.productDescription = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addproduct = new System.Windows.Forms.Button();
             this.商品名 = new System.Windows.Forms.Label();
+            this.販売在庫管理システムDBDataSet = new KaihatsuEnshuu.販売在庫管理システムDBDataSet();
+            this.販売在庫管理システムDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.テーブル1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.テーブル1TableAdapter = new KaihatsuEnshuu.販売在庫管理システムDBDataSetTableAdapters.テーブル1TableAdapter();
+            this.テーブル2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.テーブル2TableAdapter = new KaihatsuEnshuu.販売在庫管理システムDBDataSetTableAdapters.テーブル2TableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.販売在庫管理システムDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.販売在庫管理システムDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.テーブル1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.テーブル2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // productDescription
@@ -71,11 +82,14 @@
             // 
             // colorComboBox
             // 
+            this.colorComboBox.DataSource = this.テーブル2BindingSource;
+            this.colorComboBox.DisplayMember = "ColorName";
             this.colorComboBox.FormattingEnabled = true;
             this.colorComboBox.Location = new System.Drawing.Point(467, 211);
             this.colorComboBox.Name = "colorComboBox";
             this.colorComboBox.Size = new System.Drawing.Size(220, 23);
             this.colorComboBox.TabIndex = 28;
+            this.colorComboBox.ValueMember = "ColorID";
             // 
             // supplierComboBox
             // 
@@ -164,6 +178,34 @@
             this.商品名.TabIndex = 18;
             this.商品名.Text = "商品名";
             // 
+            // 販売在庫管理システムDBDataSet
+            // 
+            this.販売在庫管理システムDBDataSet.DataSetName = "販売在庫管理システムDBDataSet";
+            this.販売在庫管理システムDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // 販売在庫管理システムDBDataSetBindingSource
+            // 
+            this.販売在庫管理システムDBDataSetBindingSource.DataSource = this.販売在庫管理システムDBDataSet;
+            this.販売在庫管理システムDBDataSetBindingSource.Position = 0;
+            // 
+            // テーブル1BindingSource
+            // 
+            this.テーブル1BindingSource.DataMember = "テーブル1";
+            this.テーブル1BindingSource.DataSource = this.販売在庫管理システムDBDataSetBindingSource;
+            // 
+            // テーブル1TableAdapter
+            // 
+            this.テーブル1TableAdapter.ClearBeforeFill = true;
+            // 
+            // テーブル2BindingSource
+            // 
+            this.テーブル2BindingSource.DataMember = "テーブル2";
+            this.テーブル2BindingSource.DataSource = this.販売在庫管理システムDBDataSetBindingSource;
+            // 
+            // テーブル2TableAdapter
+            // 
+            this.テーブル2TableAdapter.ClearBeforeFill = true;
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -185,6 +227,11 @@
             this.Controls.Add(this.商品名);
             this.Name = "ProductForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.ProductForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.販売在庫管理システムDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.販売在庫管理システムDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.テーブル1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.テーブル2BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +253,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addproduct;
         private System.Windows.Forms.Label 商品名;
+        private System.Windows.Forms.BindingSource 販売在庫管理システムDBDataSetBindingSource;
+        private 販売在庫管理システムDBDataSet 販売在庫管理システムDBDataSet;
+        private System.Windows.Forms.BindingSource テーブル1BindingSource;
+        private 販売在庫管理システムDBDataSetTableAdapters.テーブル1TableAdapter テーブル1TableAdapter;
+        private System.Windows.Forms.BindingSource テーブル2BindingSource;
+        private 販売在庫管理システムDBDataSetTableAdapters.テーブル2TableAdapter テーブル2TableAdapter;
     }
 }
