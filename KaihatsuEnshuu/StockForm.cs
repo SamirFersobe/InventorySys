@@ -8,31 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KaihatsuEnshuu
+namespace template
 {
-    public partial class StockForm : Form
+    public partial class Form1 : Form
     {
-        public StockForm()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void stockForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //close this window
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            //add items
-            this.Close();
         }
     }
 }
