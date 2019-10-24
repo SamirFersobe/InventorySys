@@ -26,9 +26,9 @@ namespace KaihatsuEnshuu
 
         private void addStock_Click(object sender, EventArgs e)
         {
-            StockForm stock = new StockForm();
+           // MainForm stock = new MainForm();
             
-            stock.Show();
+           // stock.Show();
         }
 
         private void openProductForm_Click(object sender, EventArgs e)
