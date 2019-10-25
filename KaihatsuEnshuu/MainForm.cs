@@ -26,8 +26,7 @@ namespace KaihatsuEnshuu
 
         private void addStock_Click(object sender, EventArgs e)
         {
-            template.Form1 fomulae = new template.Form1();
-            fomulae.Show();
+     
         }
 
         private void openProductForm_Click(object sender, EventArgs e)
@@ -38,7 +37,8 @@ namespace KaihatsuEnshuu
 
         private void AddEmployee_Button_Click(object sender, EventArgs e)
         {
-
+            AddEmployeeForm AddEmployee = new AddEmployeeForm();
+            AddEmployee.Show();
         }
     }
 }

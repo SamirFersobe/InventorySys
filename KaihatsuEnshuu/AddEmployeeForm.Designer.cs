@@ -28,7 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AddEmployeeForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.ClientSize = new System.Drawing.Size(1506, 757);
+            this.Name = "AddEmployeeForm";
+            this.Text = "社員";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 
 		#endregion
