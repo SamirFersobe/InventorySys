@@ -113,13 +113,13 @@
             // enableEditingToolStripMenuItem
             // 
             this.enableEditingToolStripMenuItem.Name = "enableEditingToolStripMenuItem";
-            this.enableEditingToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.enableEditingToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.enableEditingToolStripMenuItem.Text = "Enable Editing";
             // 
             // refreshDateToolStripMenuItem
             // 
             this.refreshDateToolStripMenuItem.Name = "refreshDateToolStripMenuItem";
-            this.refreshDateToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.refreshDateToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.refreshDateToolStripMenuItem.Text = "Refresh Date";
             // 
             // dataToolStripMenuItem
@@ -134,13 +134,13 @@
             // deleteRecodeToolStripMenuItem
             // 
             this.deleteRecodeToolStripMenuItem.Name = "deleteRecodeToolStripMenuItem";
-            this.deleteRecodeToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.deleteRecodeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.deleteRecodeToolStripMenuItem.Text = "Delete Record";
             // 
             // summaryToolStripMenuItem
             // 
             this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.summaryToolStripMenuItem.Text = "Summary";
             // 
             // toolStripComboBox1
