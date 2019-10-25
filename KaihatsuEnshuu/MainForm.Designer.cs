@@ -34,9 +34,9 @@
             // 
             // openProductForm
             // 
-            this.openProductForm.Location = new System.Drawing.Point(12, 216);
+            this.openProductForm.Location = new System.Drawing.Point(70, 150);
             this.openProductForm.Name = "openProductForm";
-            this.openProductForm.Size = new System.Drawing.Size(111, 45);
+            this.openProductForm.Size = new System.Drawing.Size(201, 108);
             this.openProductForm.TabIndex = 0;
             this.openProductForm.Text = "商品追加";
             this.openProductForm.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // addStock
             // 
-            this.addStock.Location = new System.Drawing.Point(12, 288);
+            this.addStock.Location = new System.Drawing.Point(346, 150);
             this.addStock.Name = "addStock";
-            this.addStock.Size = new System.Drawing.Size(108, 45);
+            this.addStock.Size = new System.Drawing.Size(218, 108);
             this.addStock.TabIndex = 1;
             this.addStock.Text = "倉庫入荷";
             this.addStock.UseVisualStyleBackColor = true;

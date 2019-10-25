@@ -26,16 +26,13 @@ namespace KaihatsuEnshuu
 
         private void addStock_Click(object sender, EventArgs e)
         {
-           // MainForm stock = new MainForm();
-            
-           // stock.Show();
+            template.Form1 fomulae = new template.Form1();
+            fomulae.Show();
         }
 
         private void openProductForm_Click(object sender, EventArgs e)
         {
-            ProductForm producto = new ProductForm();
-            
-            producto.Show();
+                
 
         }
     }

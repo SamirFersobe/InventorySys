@@ -37,14 +37,14 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(139, 230);
+            this.usernameTextBox.Location = new System.Drawing.Point(162, 37);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(229, 22);
             this.usernameTextBox.TabIndex = 0;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(139, 286);
+            this.passwordTextBox.Location = new System.Drawing.Point(162, 93);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(229, 22);
             this.passwordTextBox.TabIndex = 1;
@@ -52,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 233);
+            this.label1.Location = new System.Drawing.Point(80, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 15);
             this.label1.TabIndex = 2;
@@ -61,7 +61,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 286);
+            this.label2.Location = new System.Drawing.Point(80, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 3;
@@ -69,7 +69,7 @@
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(139, 341);
+            this.loginButton.Location = new System.Drawing.Point(162, 148);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(173, 44);
             this.loginButton.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 450);
+            this.ClientSize = new System.Drawing.Size(497, 218);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -167,13 +167,13 @@
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             // 
             // aboutIToolStripMenuItem
             // 
             this.aboutIToolStripMenuItem.Name = "aboutIToolStripMenuItem";
-            this.aboutIToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.aboutIToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.aboutIToolStripMenuItem.Text = "About Ibasskung";
             // 
             // statusStrip1
