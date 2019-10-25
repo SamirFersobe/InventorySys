@@ -35,5 +35,10 @@ namespace KaihatsuEnshuu
                 
 
         }
+
+        private void AddEmployee_Button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

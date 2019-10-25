@@ -45,13 +45,6 @@
             this.aboutIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PrefixComboBox = new System.Windows.Forms.ComboBox();
-            this.NoTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.EmployeeIDTextBox = new System.Windows.Forms.TextBox();
-            this.EnableEditingCheckBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -61,11 +54,8 @@
             this.LastButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.FirstButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -170,13 +160,13 @@
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             // 
             // aboutIToolStripMenuItem
             // 
             this.aboutIToolStripMenuItem.Name = "aboutIToolStripMenuItem";
-            this.aboutIToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.aboutIToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
             this.aboutIToolStripMenuItem.Text = "About Ibasskung";
             // 
             // statusStrip1
@@ -198,77 +188,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(119, 20);
             this.toolStripStatusLabel1.Text = "Status: Loading...";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(12, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Prefix:";
-            // 
-            // PrefixComboBox
-            // 
-            this.PrefixComboBox.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.PrefixComboBox.FormattingEnabled = true;
-            this.PrefixComboBox.Location = new System.Drawing.Point(85, 61);
-            this.PrefixComboBox.Name = "PrefixComboBox";
-            this.PrefixComboBox.Size = new System.Drawing.Size(121, 25);
-            this.PrefixComboBox.TabIndex = 3;
-            // 
-            // NoTextBox
-            // 
-            this.NoTextBox.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.NoTextBox.Location = new System.Drawing.Point(293, 60);
-            this.NoTextBox.Name = "NoTextBox";
-            this.NoTextBox.Size = new System.Drawing.Size(100, 30);
-            this.NoTextBox.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(245, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 24);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "No:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(435, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 24);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Custom ID:";
-            // 
-            // EmployeeIDTextBox
-            // 
-            this.EmployeeIDTextBox.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.EmployeeIDTextBox.Location = new System.Drawing.Point(577, 63);
-            this.EmployeeIDTextBox.Name = "EmployeeIDTextBox";
-            this.EmployeeIDTextBox.Size = new System.Drawing.Size(192, 30);
-            this.EmployeeIDTextBox.TabIndex = 6;
-            this.EmployeeIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // EnableEditingCheckBox1
-            // 
-            this.EnableEditingCheckBox1.AutoSize = true;
-            this.EnableEditingCheckBox1.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.EnableEditingCheckBox1.ForeColor = System.Drawing.Color.Lavender;
-            this.EnableEditingCheckBox1.Location = new System.Drawing.Point(825, 72);
-            this.EnableEditingCheckBox1.Name = "EnableEditingCheckBox1";
-            this.EnableEditingCheckBox1.Size = new System.Drawing.Size(127, 21);
-            this.EnableEditingCheckBox1.TabIndex = 8;
-            this.EnableEditingCheckBox1.Text = "EnableEditing";
-            this.EnableEditingCheckBox1.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -278,7 +197,7 @@
             this.groupBox1.Size = new System.Drawing.Size(352, 358);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Personal Info:";
+            this.groupBox1.Text = "Info";
             // 
             // groupBox2
             // 
@@ -289,19 +208,17 @@
             this.groupBox2.Size = new System.Drawing.Size(352, 159);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Social Media:";
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox3.Location = new System.Drawing.Point(391, 116);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1103, 603);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Employee List:";
+            this.groupBox3.Text = "List";
             // 
             // PreviousButton
             // 
@@ -375,20 +292,6 @@
             this.FirstButton.Text = "First";
             this.FirstButton.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1097, 580);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -404,27 +307,18 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.EnableEditingCheckBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.EmployeeIDTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.NoTextBox);
-            this.Controls.Add(this.PrefixComboBox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.Black;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "c# connect to access";
+            this.Text = "FormTemplate";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,13 +343,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutIToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox PrefixComboBox;
-        private System.Windows.Forms.TextBox NoTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox EmployeeIDTextBox;
-        private System.Windows.Forms.CheckBox EnableEditingCheckBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -465,7 +352,6 @@
         private System.Windows.Forms.Button LastButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button FirstButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

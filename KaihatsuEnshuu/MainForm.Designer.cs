@@ -28,39 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.openProductForm = new System.Windows.Forms.Button();
-            this.addStock = new System.Windows.Forms.Button();
+            this.AddProductButton = new System.Windows.Forms.Button();
+            this.AddClientButton = new System.Windows.Forms.Button();
+            this.AddEmployeeButton = new System.Windows.Forms.Button();
+            this.AddMakerButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // openProductForm
+            // AddProductButton
             // 
-            this.openProductForm.Location = new System.Drawing.Point(70, 150);
-            this.openProductForm.Name = "openProductForm";
-            this.openProductForm.Size = new System.Drawing.Size(201, 108);
-            this.openProductForm.TabIndex = 0;
-            this.openProductForm.Text = "商品追加";
-            this.openProductForm.UseVisualStyleBackColor = true;
-            this.openProductForm.Click += new System.EventHandler(this.openProductForm_Click);
+            this.AddProductButton.Location = new System.Drawing.Point(35, 150);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(201, 108);
+            this.AddProductButton.TabIndex = 0;
+            this.AddProductButton.Text = "商品登録";
+            this.AddProductButton.UseVisualStyleBackColor = true;
+            this.AddProductButton.Click += new System.EventHandler(this.openProductForm_Click);
             // 
-            // addStock
+            // AddClientButton
             // 
-            this.addStock.Location = new System.Drawing.Point(346, 150);
-            this.addStock.Name = "addStock";
-            this.addStock.Size = new System.Drawing.Size(218, 108);
-            this.addStock.TabIndex = 1;
-            this.addStock.Text = "倉庫入荷";
-            this.addStock.UseVisualStyleBackColor = true;
-            this.addStock.Click += new System.EventHandler(this.addStock_Click);
+            this.AddClientButton.Location = new System.Drawing.Point(259, 150);
+            this.AddClientButton.Name = "AddClientButton";
+            this.AddClientButton.Size = new System.Drawing.Size(201, 108);
+            this.AddClientButton.TabIndex = 1;
+            this.AddClientButton.Text = "顧客登録";
+            this.AddClientButton.UseVisualStyleBackColor = true;
+            this.AddClientButton.Click += new System.EventHandler(this.addStock_Click);
+            // 
+            // AddEmployeeButton
+            // 
+            this.AddEmployeeButton.Location = new System.Drawing.Point(418, 282);
+            this.AddEmployeeButton.Name = "AddEmployeeButton";
+            this.AddEmployeeButton.Size = new System.Drawing.Size(201, 108);
+            this.AddEmployeeButton.TabIndex = 2;
+            this.AddEmployeeButton.Text = "社員登録";
+            this.AddEmployeeButton.UseVisualStyleBackColor = true;
+            this.AddEmployeeButton.Click += new System.EventHandler(this.AddEmployee_Button_Click);
+            // 
+            // AddMakerButton
+            // 
+            this.AddMakerButton.Location = new System.Drawing.Point(161, 282);
+            this.AddMakerButton.Name = "AddMakerButton";
+            this.AddMakerButton.Size = new System.Drawing.Size(201, 108);
+            this.AddMakerButton.TabIndex = 3;
+            this.AddMakerButton.Text = "メーカー登録";
+            this.AddMakerButton.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(487, 150);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 108);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "営業所登録";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.addStock);
-            this.Controls.Add(this.openProductForm);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddMakerButton);
+            this.Controls.Add(this.AddEmployeeButton);
+            this.Controls.Add(this.AddClientButton);
+            this.Controls.Add(this.AddProductButton);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Administrator";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
@@ -68,7 +102,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button openProductForm;
-        private System.Windows.Forms.Button addStock;
+        private System.Windows.Forms.Button AddProductButton;
+        private System.Windows.Forms.Button AddClientButton;
+        private System.Windows.Forms.Button AddEmployeeButton;
+        private System.Windows.Forms.Button AddMakerButton;
+        private System.Windows.Forms.Button button1;
     }
 }
