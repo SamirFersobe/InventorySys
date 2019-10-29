@@ -46,11 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBusinessPlaceForm.cs">
+    <Compile Include="\\stusrv\作業\B8\B8240\AddBusinessPlaceForm.cs">
       <SubType>Form</SubType>
+      <Link>AddBusinessPlaceForm.cs</Link>
     </Compile>
-    <Compile Include="AddBusinessPlaceForm.Designer.cs">
+    <Compile Include="\\stusrv\作業\B8\B8240\AddBusinessPlaceForm.Designer.cs">
       <DependentUpon>AddBusinessPlaceForm.cs</DependentUpon>
+      <Link>AddBusinessPlaceForm.Designer.cs</Link>
     </Compile>
     <Compile Include="AddCustomerForm.cs">
       <SubType>Form</SubType>
@@ -107,6 +109,10 @@
     <Compile Include="SupplyChainManager.Designer.cs">
       <DependentUpon>SupplyChainManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="\\stusrv\作業\B8\B8240\AddBusinessPlaceForm.resx">
+      <DependentUpon>AddBusinessPlaceForm.cs</DependentUpon>
+      <Link>AddBusinessPlaceForm.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
