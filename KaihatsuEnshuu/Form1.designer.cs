@@ -46,14 +46,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.PreviousButton = new System.Windows.Forms.Button();
-            this.AddNewButton = new System.Windows.Forms.Button();
-            this.NextButton = new System.Windows.Forms.Button();
-            this.LastButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.FirstButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,13 +106,13 @@
             // enableEditingToolStripMenuItem
             // 
             this.enableEditingToolStripMenuItem.Name = "enableEditingToolStripMenuItem";
-            this.enableEditingToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.enableEditingToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.enableEditingToolStripMenuItem.Text = "Enable Editing";
             // 
             // refreshDateToolStripMenuItem
             // 
             this.refreshDateToolStripMenuItem.Name = "refreshDateToolStripMenuItem";
-            this.refreshDateToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.refreshDateToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.refreshDateToolStripMenuItem.Text = "Refresh Date";
             // 
             // dataToolStripMenuItem
@@ -134,13 +127,13 @@
             // deleteRecodeToolStripMenuItem
             // 
             this.deleteRecodeToolStripMenuItem.Name = "deleteRecodeToolStripMenuItem";
-            this.deleteRecodeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.deleteRecodeToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.deleteRecodeToolStripMenuItem.Text = "Delete Record";
             // 
             // summaryToolStripMenuItem
             // 
             this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.summaryToolStripMenuItem.Text = "Summary";
             // 
             // toolStripComboBox1
@@ -197,17 +190,6 @@
             this.groupBox1.Size = new System.Drawing.Size(352, 358);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Info";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.groupBox2.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox2.Location = new System.Drawing.Point(15, 480);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 159);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
             // 
             // groupBox3
             // 
@@ -218,79 +200,6 @@
             this.groupBox3.Size = new System.Drawing.Size(1103, 603);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "List";
-            // 
-            // PreviousButton
-            // 
-            this.PreviousButton.BackColor = System.Drawing.Color.Olive;
-            this.PreviousButton.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.PreviousButton.ForeColor = System.Drawing.Color.White;
-            this.PreviousButton.Location = new System.Drawing.Point(12, 645);
-            this.PreviousButton.Name = "PreviousButton";
-            this.PreviousButton.Size = new System.Drawing.Size(111, 35);
-            this.PreviousButton.TabIndex = 0;
-            this.PreviousButton.Text = "Previous";
-            this.PreviousButton.UseVisualStyleBackColor = false;
-            // 
-            // AddNewButton
-            // 
-            this.AddNewButton.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.AddNewButton.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.AddNewButton.ForeColor = System.Drawing.Color.White;
-            this.AddNewButton.Location = new System.Drawing.Point(132, 645);
-            this.AddNewButton.Name = "AddNewButton";
-            this.AddNewButton.Size = new System.Drawing.Size(111, 35);
-            this.AddNewButton.TabIndex = 12;
-            this.AddNewButton.Text = "Add New";
-            this.AddNewButton.UseVisualStyleBackColor = false;
-            // 
-            // NextButton
-            // 
-            this.NextButton.BackColor = System.Drawing.Color.Olive;
-            this.NextButton.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.NextButton.ForeColor = System.Drawing.Color.White;
-            this.NextButton.Location = new System.Drawing.Point(256, 645);
-            this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(111, 35);
-            this.NextButton.TabIndex = 1;
-            this.NextButton.Text = "Next";
-            this.NextButton.UseVisualStyleBackColor = false;
-            // 
-            // LastButton
-            // 
-            this.LastButton.BackColor = System.Drawing.Color.Olive;
-            this.LastButton.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LastButton.ForeColor = System.Drawing.Color.White;
-            this.LastButton.Location = new System.Drawing.Point(256, 686);
-            this.LastButton.Name = "LastButton";
-            this.LastButton.Size = new System.Drawing.Size(111, 35);
-            this.LastButton.TabIndex = 14;
-            this.LastButton.Text = "Last";
-            this.LastButton.UseVisualStyleBackColor = false;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.SaveButton.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.Location = new System.Drawing.Point(132, 686);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(111, 35);
-            this.SaveButton.TabIndex = 15;
-            this.SaveButton.Text = "Save|Update";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            // 
-            // FirstButton
-            // 
-            this.FirstButton.BackColor = System.Drawing.Color.Olive;
-            this.FirstButton.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.FirstButton.ForeColor = System.Drawing.Color.White;
-            this.FirstButton.Location = new System.Drawing.Point(12, 686);
-            this.FirstButton.Name = "FirstButton";
-            this.FirstButton.Size = new System.Drawing.Size(111, 35);
-            this.FirstButton.TabIndex = 13;
-            this.FirstButton.Text = "First";
-            this.FirstButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -298,14 +207,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1506, 757);
-            this.Controls.Add(this.LastButton);
-            this.Controls.Add(this.NextButton);
-            this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.FirstButton);
-            this.Controls.Add(this.AddNewButton);
-            this.Controls.Add(this.PreviousButton);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -343,15 +245,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutIToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button PreviousButton;
-        private System.Windows.Forms.Button AddNewButton;
-        private System.Windows.Forms.Button NextButton;
-        private System.Windows.Forms.Button LastButton;
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button FirstButton;
+        protected System.Windows.Forms.GroupBox groupBox1;
+        protected System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
