@@ -40,5 +40,11 @@ namespace KaihatsuEnshuu
             AddEmployeeForm AddEmployee = new AddEmployeeForm();
             AddEmployee.Show();
         }
+
+        private void AddMakerButton_Click(object sender, EventArgs e)
+        {
+            AddMakerForm addMakerForm = new AddMakerForm();
+            addMakerForm.Show();
+        }
     }
 }
