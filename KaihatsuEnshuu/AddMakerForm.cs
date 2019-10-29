@@ -14,5 +14,17 @@ namespace KaihatsuEnshuu
         {
             InitializeComponent();
         }
+
+        private void AddMakerForm_Load(object sender, EventArgs e)
+        {
+            // TODO: このコード行はデータを 'oI21Database1DataSet.仕入先' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.仕入先TableAdapter.Fill(this.oI21Database1DataSet.仕入先);
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

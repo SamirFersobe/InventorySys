@@ -73,6 +73,7 @@
             this.AddMakerButton.TabIndex = 3;
             this.AddMakerButton.Text = "メーカー登録";
             this.AddMakerButton.UseVisualStyleBackColor = true;
+            this.AddMakerButton.Click += new System.EventHandler(this.AddMakerButton_Click);
             // 
             // button1
             // 
