@@ -101,6 +101,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupplyChainManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplyChainManager.Designer.cs">
+      <DependentUpon>SupplyChainManager.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SupplyChainManager.resx">
+      <DependentUpon>SupplyChainManager.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="OI21Database1DataSet.xsc">
       <DependentUpon>OI21Database1DataSet.xsd</DependentUpon>
     </None>
