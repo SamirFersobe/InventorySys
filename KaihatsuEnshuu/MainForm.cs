@@ -26,12 +26,15 @@ namespace KaihatsuEnshuu
 
         private void addStock_Click(object sender, EventArgs e)
         {
+            AddCustomerForm addCustomer = new AddCustomerForm();
+            addCustomer.Show();
      
         }
 
         private void openProductForm_Click(object sender, EventArgs e)
         {
-                
+            AddProductForm AddProduct = new AddProductForm();
+            AddProduct.Show();
 
         }
 
