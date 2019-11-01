@@ -107,6 +107,9 @@
     <EmbeddedResource Include="AddMakerForm.resx">
       <DependentUpon>AddMakerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddProductForm.resx">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

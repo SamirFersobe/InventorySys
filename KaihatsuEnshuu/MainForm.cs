@@ -49,5 +49,10 @@ namespace KaihatsuEnshuu
             AddMakerForm addMakerForm = new AddMakerForm();
             addMakerForm.Show();
         }
+
+        private void AddBusinessPlaceButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

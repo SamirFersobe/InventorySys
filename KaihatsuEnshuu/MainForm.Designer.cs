@@ -32,7 +32,7 @@
             this.AddClientButton = new System.Windows.Forms.Button();
             this.AddEmployeeButton = new System.Windows.Forms.Button();
             this.AddMakerButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddBusinessPlaceButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddProductButton
@@ -75,21 +75,22 @@
             this.AddMakerButton.UseVisualStyleBackColor = true;
             this.AddMakerButton.Click += new System.EventHandler(this.AddMakerButton_Click);
             // 
-            // button1
+            // AddBusinessPlaceButton
             // 
-            this.button1.Location = new System.Drawing.Point(487, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 108);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "営業所登録";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddBusinessPlaceButton.Location = new System.Drawing.Point(493, 150);
+            this.AddBusinessPlaceButton.Name = "AddBusinessPlaceButton";
+            this.AddBusinessPlaceButton.Size = new System.Drawing.Size(201, 108);
+            this.AddBusinessPlaceButton.TabIndex = 4;
+            this.AddBusinessPlaceButton.Text = "営業所登録";
+            this.AddBusinessPlaceButton.UseVisualStyleBackColor = true;
+            this.AddBusinessPlaceButton.Click += new System.EventHandler(this.AddBusinessPlaceButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddBusinessPlaceButton);
             this.Controls.Add(this.AddMakerButton);
             this.Controls.Add(this.AddEmployeeButton);
             this.Controls.Add(this.AddClientButton);
@@ -107,6 +108,6 @@
         private System.Windows.Forms.Button AddClientButton;
         private System.Windows.Forms.Button AddEmployeeButton;
         private System.Windows.Forms.Button AddMakerButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddBusinessPlaceButton;
     }
 }
