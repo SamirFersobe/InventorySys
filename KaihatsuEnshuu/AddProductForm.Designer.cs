@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
-            this.商品BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.商品TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.商品TableAdapter();
             this.商品IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.カテゴリーIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.商品名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +37,9 @@
             this.商品説明DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.色可能DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.サイズ可能DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商品BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
+            this.商品TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.商品TableAdapter();
             this.Category = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,18 +51,21 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.色BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.色TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.色TableAdapter();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.サイズBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.色TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.色TableAdapter();
             this.サイズTableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.サイズTableAdapter();
+            this.カテゴリーBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.カテゴリーTableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.カテゴリーTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.商品BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.色BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.サイズBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.カテゴリーBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -103,20 +106,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 580);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // oI21Database1DataSet
-            // 
-            this.oI21Database1DataSet.DataSetName = "OI21Database1DataSet";
-            this.oI21Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // 商品BindingSource
-            // 
-            this.商品BindingSource.DataMember = "商品";
-            this.商品BindingSource.DataSource = this.oI21Database1DataSet;
-            // 
-            // 商品TableAdapter
-            // 
-            this.商品TableAdapter.ClearBeforeFill = true;
             // 
             // 商品IDDataGridViewTextBoxColumn
             // 
@@ -160,10 +149,24 @@
             this.サイズ可能DataGridViewTextBoxColumn.HeaderText = "サイズ可能";
             this.サイズ可能DataGridViewTextBoxColumn.Name = "サイズ可能DataGridViewTextBoxColumn";
             // 
+            // 商品BindingSource
+            // 
+            this.商品BindingSource.DataMember = "商品";
+            this.商品BindingSource.DataSource = this.oI21Database1DataSet;
+            // 
+            // oI21Database1DataSet
+            // 
+            this.oI21Database1DataSet.DataSetName = "OI21Database1DataSet";
+            this.oI21Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // 商品TableAdapter
+            // 
+            this.商品TableAdapter.ClearBeforeFill = true;
+            // 
             // Category
             // 
             this.Category.AutoSize = true;
-            this.Category.Location = new System.Drawing.Point(63, 38);
+            this.Category.Location = new System.Drawing.Point(54, 271);
             this.Category.Name = "Category";
             this.Category.Size = new System.Drawing.Size(70, 17);
             this.Category.TabIndex = 0;
@@ -172,7 +175,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 125);
+            this.label2.Location = new System.Drawing.Point(54, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 1;
@@ -181,7 +184,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 84);
+            this.label3.Location = new System.Drawing.Point(54, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 17);
             this.label3.TabIndex = 2;
@@ -190,7 +193,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 156);
+            this.label4.Location = new System.Drawing.Point(54, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 3;
@@ -199,7 +202,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 260);
+            this.label5.Location = new System.Drawing.Point(99, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 17);
             this.label5.TabIndex = 4;
@@ -207,15 +210,18 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.カテゴリーBindingSource;
+            this.comboBox1.DisplayMember = "カテゴリー名";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(148, 38);
+            this.comboBox1.Location = new System.Drawing.Point(139, 271);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(198, 25);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.ValueMember = "ID";
             // 
             // ProductNameMaskedTextBox
             // 
-            this.ProductNameMaskedTextBox.Location = new System.Drawing.Point(148, 84);
+            this.ProductNameMaskedTextBox.Location = new System.Drawing.Point(139, 20);
             this.ProductNameMaskedTextBox.Name = "ProductNameMaskedTextBox";
             this.ProductNameMaskedTextBox.Size = new System.Drawing.Size(198, 24);
             this.ProductNameMaskedTextBox.TabIndex = 6;
@@ -223,7 +229,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 299);
+            this.label1.Location = new System.Drawing.Point(76, 243);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 7;
@@ -231,14 +237,14 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(148, 125);
+            this.maskedTextBox1.Location = new System.Drawing.Point(139, 61);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(198, 24);
             this.maskedTextBox1.TabIndex = 8;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(148, 156);
+            this.richTextBox1.Location = new System.Drawing.Point(139, 92);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(198, 96);
             this.richTextBox1.TabIndex = 9;
@@ -249,40 +255,49 @@
             this.comboBox2.DataSource = this.色BindingSource;
             this.comboBox2.DisplayMember = "色";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(148, 260);
+            this.comboBox2.Location = new System.Drawing.Point(139, 204);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(198, 25);
             this.comboBox2.TabIndex = 10;
             this.comboBox2.ValueMember = "ID";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DataSource = this.サイズBindingSource;
-            this.comboBox3.DisplayMember = "サイズ省略";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(148, 296);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(198, 25);
-            this.comboBox3.TabIndex = 11;
-            this.comboBox3.ValueMember = "サイズID";
             // 
             // 色BindingSource
             // 
             this.色BindingSource.DataMember = "色";
             this.色BindingSource.DataSource = this.oI21Database1DataSet;
             // 
-            // 色TableAdapter
+            // comboBox3
             // 
-            this.色TableAdapter.ClearBeforeFill = true;
+            this.comboBox3.DataSource = this.サイズBindingSource;
+            this.comboBox3.DisplayMember = "サイズ省略";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(139, 240);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(198, 25);
+            this.comboBox3.TabIndex = 11;
+            this.comboBox3.ValueMember = "サイズID";
             // 
             // サイズBindingSource
             // 
             this.サイズBindingSource.DataMember = "サイズ";
             this.サイズBindingSource.DataSource = this.oI21Database1DataSet;
             // 
+            // 色TableAdapter
+            // 
+            this.色TableAdapter.ClearBeforeFill = true;
+            // 
             // サイズTableAdapter
             // 
             this.サイズTableAdapter.ClearBeforeFill = true;
+            // 
+            // カテゴリーBindingSource
+            // 
+            this.カテゴリーBindingSource.DataMember = "カテゴリー";
+            this.カテゴリーBindingSource.DataSource = this.oI21Database1DataSet;
+            // 
+            // カテゴリーTableAdapter
+            // 
+            this.カテゴリーTableAdapter.ClearBeforeFill = true;
             // 
             // AddProductForm
             // 
@@ -295,10 +310,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.商品BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.色BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.サイズBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.カテゴリーBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +349,7 @@
         private OI21Database1DataSetTableAdapters.色TableAdapter 色TableAdapter;
         private System.Windows.Forms.BindingSource サイズBindingSource;
         private OI21Database1DataSetTableAdapters.サイズTableAdapter サイズTableAdapter;
+        private System.Windows.Forms.BindingSource カテゴリーBindingSource;
+        private OI21Database1DataSetTableAdapters.カテゴリーTableAdapter カテゴリーTableAdapter;
     }
 }
