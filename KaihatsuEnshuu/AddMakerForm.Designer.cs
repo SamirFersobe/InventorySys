@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
-            this.仕入先BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.仕入先TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.仕入先TableAdapter();
             this.仕入先IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.企業名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.アドレス１DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +42,9 @@
             this.eメールDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.支払方法DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仕入先BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
+            this.仕入先TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.仕入先TableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.MakerIdMTB = new System.Windows.Forms.MaskedTextBox();
             this.MakerPostalCodeMTB = new System.Windows.Forms.MaskedTextBox();
@@ -70,11 +70,18 @@
             this.label12 = new System.Windows.Forms.Label();
             this.MakerHowToPayMTB = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.EnableEditingCheckBox1 = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.EmployeeIDTextBox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.NoTextBox = new System.Windows.Forms.TextBox();
+            this.PrefixComboBox = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.仕入先BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -137,20 +144,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 580);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // oI21Database1DataSet
-            // 
-            this.oI21Database1DataSet.DataSetName = "OI21Database1DataSet";
-            this.oI21Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // 仕入先BindingSource
-            // 
-            this.仕入先BindingSource.DataMember = "仕入先";
-            this.仕入先BindingSource.DataSource = this.oI21Database1DataSet;
-            // 
-            // 仕入先TableAdapter
-            // 
-            this.仕入先TableAdapter.ClearBeforeFill = true;
             // 
             // 仕入先IDDataGridViewTextBoxColumn
             // 
@@ -235,6 +228,20 @@
             this.支払方法DataGridViewTextBoxColumn.HeaderText = "支払方法";
             this.支払方法DataGridViewTextBoxColumn.Name = "支払方法DataGridViewTextBoxColumn";
             this.支払方法DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 仕入先BindingSource
+            // 
+            this.仕入先BindingSource.DataMember = "仕入先";
+            this.仕入先BindingSource.DataSource = this.oI21Database1DataSet;
+            // 
+            // oI21Database1DataSet
+            // 
+            this.oI21Database1DataSet.DataSetName = "OI21Database1DataSet";
+            this.oI21Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // 仕入先TableAdapter
+            // 
+            this.仕入先TableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -449,18 +456,106 @@
             this.label13.TabIndex = 23;
             this.label13.Text = "支払方法";
             // 
+            // EnableEditingCheckBox1
+            // 
+            this.EnableEditingCheckBox1.AutoSize = true;
+            this.EnableEditingCheckBox1.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.EnableEditingCheckBox1.ForeColor = System.Drawing.Color.Lavender;
+            this.EnableEditingCheckBox1.Location = new System.Drawing.Point(840, 75);
+            this.EnableEditingCheckBox1.Name = "EnableEditingCheckBox1";
+            this.EnableEditingCheckBox1.Size = new System.Drawing.Size(127, 21);
+            this.EnableEditingCheckBox1.TabIndex = 18;
+            this.EnableEditingCheckBox1.Text = "EnableEditing";
+            this.EnableEditingCheckBox1.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label14.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label14.Location = new System.Drawing.Point(450, 66);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(121, 24);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Custom ID:";
+            // 
+            // EmployeeIDTextBox
+            // 
+            this.EmployeeIDTextBox.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.EmployeeIDTextBox.Location = new System.Drawing.Point(592, 66);
+            this.EmployeeIDTextBox.Name = "EmployeeIDTextBox";
+            this.EmployeeIDTextBox.Size = new System.Drawing.Size(192, 30);
+            this.EmployeeIDTextBox.TabIndex = 16;
+            this.EmployeeIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label15.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label15.Location = new System.Drawing.Point(260, 68);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(42, 24);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "No:";
+            // 
+            // NoTextBox
+            // 
+            this.NoTextBox.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NoTextBox.Location = new System.Drawing.Point(308, 63);
+            this.NoTextBox.Name = "NoTextBox";
+            this.NoTextBox.Size = new System.Drawing.Size(100, 30);
+            this.NoTextBox.TabIndex = 14;
+            this.NoTextBox.TextChanged += new System.EventHandler(this.NoTextBox_TextChanged);
+            // 
+            // PrefixComboBox
+            // 
+            this.PrefixComboBox.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.PrefixComboBox.FormattingEnabled = true;
+            this.PrefixComboBox.Location = new System.Drawing.Point(100, 64);
+            this.PrefixComboBox.Name = "PrefixComboBox";
+            this.PrefixComboBox.Size = new System.Drawing.Size(121, 25);
+            this.PrefixComboBox.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label16.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label16.Location = new System.Drawing.Point(27, 64);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 17);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Prefix:";
+            // 
             // AddMakerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.ClientSize = new System.Drawing.Size(1506, 757);
+            this.Controls.Add(this.EnableEditingCheckBox1);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.EmployeeIDTextBox);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.NoTextBox);
+            this.Controls.Add(this.PrefixComboBox);
+            this.Controls.Add(this.label16);
             this.Name = "AddMakerForm";
             this.Load += new System.EventHandler(this.AddMakerForm_Load);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.groupBox3, 0);
+            this.Controls.SetChildIndex(this.label16, 0);
+            this.Controls.SetChildIndex(this.PrefixComboBox, 0);
+            this.Controls.SetChildIndex(this.NoTextBox, 0);
+            this.Controls.SetChildIndex(this.label15, 0);
+            this.Controls.SetChildIndex(this.EmployeeIDTextBox, 0);
+            this.Controls.SetChildIndex(this.label14, 0);
+            this.Controls.SetChildIndex(this.EnableEditingCheckBox1, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.仕入先BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,5 +604,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox MakerHowToPayMTB;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox EnableEditingCheckBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox EmployeeIDTextBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox NoTextBox;
+        private System.Windows.Forms.ComboBox PrefixComboBox;
+        private System.Windows.Forms.Label label16;
     }
 }
