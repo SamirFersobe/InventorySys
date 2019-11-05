@@ -377,7 +377,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 17);
             this.label8.TabIndex = 14;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+         
             // 
             // MakerFaxMTB
             // 
@@ -506,7 +506,7 @@
             this.NoTextBox.Name = "NoTextBox";
             this.NoTextBox.Size = new System.Drawing.Size(100, 30);
             this.NoTextBox.TabIndex = 14;
-            this.NoTextBox.TextChanged += new System.EventHandler(this.NoTextBox_TextChanged);
+            
             // 
             // PrefixComboBox
             // 

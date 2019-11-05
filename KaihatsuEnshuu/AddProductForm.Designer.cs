@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.商品IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.カテゴリーIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.商品名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.商品価格DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.商品説明DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.色可能DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.サイズ可能DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.商品BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
             this.商品TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.商品TableAdapter();
@@ -45,38 +38,40 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.カテゴリーBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProductNameMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.productPrice = new System.Windows.Forms.MaskedTextBox();
+            this.productExplanation = new System.Windows.Forms.RichTextBox();
+            this.colorComboBox = new System.Windows.Forms.ComboBox();
             this.色BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.sizeComboBox = new System.Windows.Forms.ComboBox();
             this.サイズBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.色TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.色TableAdapter();
             this.サイズTableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.サイズTableAdapter();
-            this.カテゴリーBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.カテゴリーTableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.カテゴリーTableAdapter();
+            this.addProductButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.商品BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.カテゴリーBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.色BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.サイズBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.カテゴリーBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.addProductButton);
+            this.groupBox1.Controls.Add(this.sizeComboBox);
+            this.groupBox1.Controls.Add(this.colorComboBox);
+            this.groupBox1.Controls.Add(this.productExplanation);
+            this.groupBox1.Controls.Add(this.productPrice);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.ProductNameMaskedTextBox);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.categoryComboBox);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -89,65 +84,13 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.商品IDDataGridViewTextBoxColumn,
-            this.カテゴリーIDDataGridViewTextBoxColumn,
-            this.商品名DataGridViewTextBoxColumn,
-            this.商品価格DataGridViewTextBoxColumn,
-            this.商品説明DataGridViewTextBoxColumn,
-            this.色可能DataGridViewTextBoxColumn,
-            this.サイズ可能DataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.商品BindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 580);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // 商品IDDataGridViewTextBoxColumn
-            // 
-            this.商品IDDataGridViewTextBoxColumn.DataPropertyName = "商品ID";
-            this.商品IDDataGridViewTextBoxColumn.HeaderText = "商品ID";
-            this.商品IDDataGridViewTextBoxColumn.Name = "商品IDDataGridViewTextBoxColumn";
-            // 
-            // カテゴリーIDDataGridViewTextBoxColumn
-            // 
-            this.カテゴリーIDDataGridViewTextBoxColumn.DataPropertyName = "カテゴリーID";
-            this.カテゴリーIDDataGridViewTextBoxColumn.HeaderText = "カテゴリーID";
-            this.カテゴリーIDDataGridViewTextBoxColumn.Name = "カテゴリーIDDataGridViewTextBoxColumn";
-            // 
-            // 商品名DataGridViewTextBoxColumn
-            // 
-            this.商品名DataGridViewTextBoxColumn.DataPropertyName = "商品名";
-            this.商品名DataGridViewTextBoxColumn.HeaderText = "商品名";
-            this.商品名DataGridViewTextBoxColumn.Name = "商品名DataGridViewTextBoxColumn";
-            // 
-            // 商品価格DataGridViewTextBoxColumn
-            // 
-            this.商品価格DataGridViewTextBoxColumn.DataPropertyName = "商品価格";
-            this.商品価格DataGridViewTextBoxColumn.HeaderText = "商品価格";
-            this.商品価格DataGridViewTextBoxColumn.Name = "商品価格DataGridViewTextBoxColumn";
-            // 
-            // 商品説明DataGridViewTextBoxColumn
-            // 
-            this.商品説明DataGridViewTextBoxColumn.DataPropertyName = "商品説明";
-            this.商品説明DataGridViewTextBoxColumn.HeaderText = "商品説明";
-            this.商品説明DataGridViewTextBoxColumn.Name = "商品説明DataGridViewTextBoxColumn";
-            // 
-            // 色可能DataGridViewTextBoxColumn
-            // 
-            this.色可能DataGridViewTextBoxColumn.DataPropertyName = "色可能";
-            this.色可能DataGridViewTextBoxColumn.HeaderText = "色可能";
-            this.色可能DataGridViewTextBoxColumn.Name = "色可能DataGridViewTextBoxColumn";
-            // 
-            // サイズ可能DataGridViewTextBoxColumn
-            // 
-            this.サイズ可能DataGridViewTextBoxColumn.DataPropertyName = "サイズ可能";
-            this.サイズ可能DataGridViewTextBoxColumn.HeaderText = "サイズ可能";
-            this.サイズ可能DataGridViewTextBoxColumn.Name = "サイズ可能DataGridViewTextBoxColumn";
             // 
             // 商品BindingSource
             // 
@@ -208,16 +151,21 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "色";
             // 
-            // comboBox1
+            // categoryComboBox
             // 
-            this.comboBox1.DataSource = this.カテゴリーBindingSource;
-            this.comboBox1.DisplayMember = "カテゴリー名";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(139, 271);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(198, 25);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.ValueMember = "ID";
+            this.categoryComboBox.DataSource = this.カテゴリーBindingSource;
+            this.categoryComboBox.DisplayMember = "カテゴリー名";
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(139, 271);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(198, 25);
+            this.categoryComboBox.TabIndex = 5;
+            this.categoryComboBox.ValueMember = "ID";
+            // 
+            // カテゴリーBindingSource
+            // 
+            this.カテゴリーBindingSource.DataMember = "カテゴリー";
+            this.カテゴリーBindingSource.DataSource = this.oI21Database1DataSet;
             // 
             // ProductNameMaskedTextBox
             // 
@@ -235,47 +183,47 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "サイズ";
             // 
-            // maskedTextBox1
+            // productPrice
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(139, 61);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(198, 24);
-            this.maskedTextBox1.TabIndex = 8;
+            this.productPrice.Location = new System.Drawing.Point(139, 61);
+            this.productPrice.Name = "productPrice";
+            this.productPrice.Size = new System.Drawing.Size(198, 24);
+            this.productPrice.TabIndex = 8;
             // 
-            // richTextBox1
+            // productExplanation
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(139, 92);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(198, 96);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
+            this.productExplanation.Location = new System.Drawing.Point(139, 92);
+            this.productExplanation.Name = "productExplanation";
+            this.productExplanation.Size = new System.Drawing.Size(198, 96);
+            this.productExplanation.TabIndex = 9;
+            this.productExplanation.Text = "";
             // 
-            // comboBox2
+            // colorComboBox
             // 
-            this.comboBox2.DataSource = this.色BindingSource;
-            this.comboBox2.DisplayMember = "色";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(139, 204);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(198, 25);
-            this.comboBox2.TabIndex = 10;
-            this.comboBox2.ValueMember = "ID";
+            this.colorComboBox.DataSource = this.色BindingSource;
+            this.colorComboBox.DisplayMember = "色";
+            this.colorComboBox.FormattingEnabled = true;
+            this.colorComboBox.Location = new System.Drawing.Point(139, 204);
+            this.colorComboBox.Name = "colorComboBox";
+            this.colorComboBox.Size = new System.Drawing.Size(198, 25);
+            this.colorComboBox.TabIndex = 10;
+            this.colorComboBox.ValueMember = "ID";
             // 
             // 色BindingSource
             // 
             this.色BindingSource.DataMember = "色";
             this.色BindingSource.DataSource = this.oI21Database1DataSet;
             // 
-            // comboBox3
+            // sizeComboBox
             // 
-            this.comboBox3.DataSource = this.サイズBindingSource;
-            this.comboBox3.DisplayMember = "サイズ省略";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(139, 240);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(198, 25);
-            this.comboBox3.TabIndex = 11;
-            this.comboBox3.ValueMember = "サイズID";
+            this.sizeComboBox.DataSource = this.サイズBindingSource;
+            this.sizeComboBox.DisplayMember = "サイズ省略";
+            this.sizeComboBox.FormattingEnabled = true;
+            this.sizeComboBox.Location = new System.Drawing.Point(139, 240);
+            this.sizeComboBox.Name = "sizeComboBox";
+            this.sizeComboBox.Size = new System.Drawing.Size(198, 25);
+            this.sizeComboBox.TabIndex = 11;
+            this.sizeComboBox.ValueMember = "サイズID";
             // 
             // サイズBindingSource
             // 
@@ -290,14 +238,19 @@
             // 
             this.サイズTableAdapter.ClearBeforeFill = true;
             // 
-            // カテゴリーBindingSource
-            // 
-            this.カテゴリーBindingSource.DataMember = "カテゴリー";
-            this.カテゴリーBindingSource.DataSource = this.oI21Database1DataSet;
-            // 
             // カテゴリーTableAdapter
             // 
             this.カテゴリーTableAdapter.ClearBeforeFill = true;
+            // 
+            // addProductButton
+            // 
+            this.addProductButton.Location = new System.Drawing.Point(139, 315);
+            this.addProductButton.Name = "addProductButton";
+            this.addProductButton.Size = new System.Drawing.Size(115, 23);
+            this.addProductButton.TabIndex = 12;
+            this.addProductButton.Text = "追加";
+            this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // AddProductForm
             // 
@@ -312,9 +265,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.商品BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.カテゴリーBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.色BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.サイズBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.カテゴリーBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,20 +279,13 @@
         private OI21Database1DataSet oI21Database1DataSet;
         private System.Windows.Forms.BindingSource 商品BindingSource;
         private OI21Database1DataSetTableAdapters.商品TableAdapter 商品TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 商品IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn カテゴリーIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 商品名DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 商品価格DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 商品説明DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 色可能DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn サイズ可能DataGridViewTextBoxColumn;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.ComboBox sizeComboBox;
+        private System.Windows.Forms.ComboBox colorComboBox;
+        private System.Windows.Forms.RichTextBox productExplanation;
+        private System.Windows.Forms.MaskedTextBox productPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox ProductNameMaskedTextBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -351,5 +297,6 @@
         private OI21Database1DataSetTableAdapters.サイズTableAdapter サイズTableAdapter;
         private System.Windows.Forms.BindingSource カテゴリーBindingSource;
         private OI21Database1DataSetTableAdapters.カテゴリーTableAdapter カテゴリーTableAdapter;
+        private System.Windows.Forms.Button addProductButton;
     }
 }

@@ -16,8 +16,9 @@ namespace KaihatsuEnshuu
             InitializeComponent();
         }
 
-
-        DataTable dt = new DataTable();
+        string orderDetails;
+        DataTable dt1 = new DataTable(); // This one has the orders
+        DataTable dt2 = new DataTable();//This one display the orders 内容
         private void SupplyChainManager_Load(object sender, EventArgs e)
         {
 
@@ -26,22 +27,61 @@ namespace KaihatsuEnshuu
             {
                 string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
                 OleDbConnection con = new OleDbConnection(str);
-                string sql = "SELECT * FROM 色";//change info to name of database
-                OleDbDataAdapter da = new OleDbDataAdapter(sql, con);
-                da.Fill(dt);
-                dataGridView3.DataSource = dt;
+                string sql1 = "SELECT * FROM 注文";
+               
+                OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
+                da.Fill(dt1);
+
+                dataGridView1.DataSource = dt1;
                 MessageBox.Show("Values loaded ...!!!");
                 
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + "pen");
+                MessageBox.Show(ex.Message + " 1");
             }
-            // TODO: このコード行はデータを 'oI21Database1DataSet.注文内容' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-            //this.注文内容TableAdapter.Fill(this.oI21Database1DataSet.注文内容);
-            // TODO: このコード行はデータを 'oI21Database1DataSet.注文' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-            //this.注文TableAdapter.Fill(this.oI21Database1DataSet.注文);
 
+
+
+            try
+            {
+                string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+                OleDbConnection con = new OleDbConnection(str);
+                string sql2 = "SELECT * FROM 注文内容";
+                if (orderDetails != null) 
+                {
+                    sql2 = "SELECT * FROM 注文内容 where 注文ID = " + orderDetails;
+                }
+                OleDbDataAdapter da2 = new OleDbDataAdapter(sql2, con);
+                da2.Fill(dt2);
+                dataGridView2.DataSource = dt2;
+                MessageBox.Show("Values for database 2 loaded !");
+
+            }
+            catch(Exception ex2)
+            {
+                MessageBox.Show(ex2.Message + "2");
+            }
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return; //check if row index is not 
+                if (dataGridView1.CurrentCell != null && dataGridView1.CurrentCell.Value != null)
+                 orderDetails =  dataGridView1.CurrentCell.Value.ToString();
+            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+            OleDbConnection con = new OleDbConnection(str);
+            string sql2 = "SELECT * FROM 注文内容";
+            if (orderDetails != null)
+            {
+                sql2 = "SELECT * FROM 注文内容 where 注文ID = " + orderDetails;
+            }
+            OleDbDataAdapter da2 = new OleDbDataAdapter(sql2, con);
+            dt2.Clear();
+            da2.Fill(dt2);
+            dataGridView2.DataSource = dt2;
+            MessageBox.Show("Values changed");
         }
     }
 }
