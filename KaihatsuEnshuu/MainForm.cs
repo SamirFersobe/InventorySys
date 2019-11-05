@@ -54,5 +54,11 @@ namespace KaihatsuEnshuu
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SupplyChainManager supplyForm = new SupplyChainManager();
+            supplyForm.Show();
+        }
     }
 }

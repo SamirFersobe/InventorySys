@@ -34,9 +34,13 @@
             this.注文TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.注文TableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.注文IDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.顧客IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.営業所IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.日付DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.合計DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.出庫IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.注文内容BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.注文内容TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.注文内容TableAdapter();
             this.注文内容IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.注文IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.商品IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,12 +48,10 @@
             this.色IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.サイズIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.合計DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.注文IDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.顧客IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.営業所IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.日付DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.合計DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.出庫IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.注文内容BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.注文内容TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.注文内容TableAdapter();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文BindingSource)).BeginInit();
@@ -57,10 +59,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文内容BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView3);
             this.groupBox1.Size = new System.Drawing.Size(352, 288);
             // 
             // groupBox3
@@ -111,6 +115,42 @@
             this.dataGridView1.Size = new System.Drawing.Size(346, 264);
             this.dataGridView1.TabIndex = 0;
             // 
+            // 注文IDDataGridViewTextBoxColumn1
+            // 
+            this.注文IDDataGridViewTextBoxColumn1.DataPropertyName = "注文ID";
+            this.注文IDDataGridViewTextBoxColumn1.HeaderText = "注文ID";
+            this.注文IDDataGridViewTextBoxColumn1.Name = "注文IDDataGridViewTextBoxColumn1";
+            // 
+            // 顧客IDDataGridViewTextBoxColumn
+            // 
+            this.顧客IDDataGridViewTextBoxColumn.DataPropertyName = "顧客ID";
+            this.顧客IDDataGridViewTextBoxColumn.HeaderText = "顧客ID";
+            this.顧客IDDataGridViewTextBoxColumn.Name = "顧客IDDataGridViewTextBoxColumn";
+            // 
+            // 営業所IDDataGridViewTextBoxColumn
+            // 
+            this.営業所IDDataGridViewTextBoxColumn.DataPropertyName = "営業所ID";
+            this.営業所IDDataGridViewTextBoxColumn.HeaderText = "営業所ID";
+            this.営業所IDDataGridViewTextBoxColumn.Name = "営業所IDDataGridViewTextBoxColumn";
+            // 
+            // 日付DataGridViewTextBoxColumn
+            // 
+            this.日付DataGridViewTextBoxColumn.DataPropertyName = "日付";
+            this.日付DataGridViewTextBoxColumn.HeaderText = "日付";
+            this.日付DataGridViewTextBoxColumn.Name = "日付DataGridViewTextBoxColumn";
+            // 
+            // 合計DataGridViewTextBoxColumn1
+            // 
+            this.合計DataGridViewTextBoxColumn1.DataPropertyName = "合計";
+            this.合計DataGridViewTextBoxColumn1.HeaderText = "合計";
+            this.合計DataGridViewTextBoxColumn1.Name = "合計DataGridViewTextBoxColumn1";
+            // 
+            // 出庫IDDataGridViewTextBoxColumn
+            // 
+            this.出庫IDDataGridViewTextBoxColumn.DataPropertyName = "出庫ID}";
+            this.出庫IDDataGridViewTextBoxColumn.HeaderText = "出庫ID}";
+            this.出庫IDDataGridViewTextBoxColumn.Name = "出庫IDDataGridViewTextBoxColumn";
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
@@ -130,15 +170,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(1097, 580);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // 注文内容BindingSource
-            // 
-            this.注文内容BindingSource.DataMember = "注文内容";
-            this.注文内容BindingSource.DataSource = this.oI21Database1DataSet;
-            // 
-            // 注文内容TableAdapter
-            // 
-            this.注文内容TableAdapter.ClearBeforeFill = true;
             // 
             // 注文内容IDDataGridViewTextBoxColumn
             // 
@@ -182,41 +213,24 @@
             this.合計DataGridViewTextBoxColumn.HeaderText = "合計";
             this.合計DataGridViewTextBoxColumn.Name = "合計DataGridViewTextBoxColumn";
             // 
-            // 注文IDDataGridViewTextBoxColumn1
+            // 注文内容BindingSource
             // 
-            this.注文IDDataGridViewTextBoxColumn1.DataPropertyName = "注文ID";
-            this.注文IDDataGridViewTextBoxColumn1.HeaderText = "注文ID";
-            this.注文IDDataGridViewTextBoxColumn1.Name = "注文IDDataGridViewTextBoxColumn1";
+            this.注文内容BindingSource.DataMember = "注文内容";
+            this.注文内容BindingSource.DataSource = this.oI21Database1DataSet;
             // 
-            // 顧客IDDataGridViewTextBoxColumn
+            // 注文内容TableAdapter
             // 
-            this.顧客IDDataGridViewTextBoxColumn.DataPropertyName = "顧客ID";
-            this.顧客IDDataGridViewTextBoxColumn.HeaderText = "顧客ID";
-            this.顧客IDDataGridViewTextBoxColumn.Name = "顧客IDDataGridViewTextBoxColumn";
+            this.注文内容TableAdapter.ClearBeforeFill = true;
             // 
-            // 営業所IDDataGridViewTextBoxColumn
+            // dataGridView3
             // 
-            this.営業所IDDataGridViewTextBoxColumn.DataPropertyName = "営業所ID";
-            this.営業所IDDataGridViewTextBoxColumn.HeaderText = "営業所ID";
-            this.営業所IDDataGridViewTextBoxColumn.Name = "営業所IDDataGridViewTextBoxColumn";
-            // 
-            // 日付DataGridViewTextBoxColumn
-            // 
-            this.日付DataGridViewTextBoxColumn.DataPropertyName = "日付";
-            this.日付DataGridViewTextBoxColumn.HeaderText = "日付";
-            this.日付DataGridViewTextBoxColumn.Name = "日付DataGridViewTextBoxColumn";
-            // 
-            // 合計DataGridViewTextBoxColumn1
-            // 
-            this.合計DataGridViewTextBoxColumn1.DataPropertyName = "合計";
-            this.合計DataGridViewTextBoxColumn1.HeaderText = "合計";
-            this.合計DataGridViewTextBoxColumn1.Name = "合計DataGridViewTextBoxColumn1";
-            // 
-            // 出庫IDDataGridViewTextBoxColumn
-            // 
-            this.出庫IDDataGridViewTextBoxColumn.DataPropertyName = "出庫ID}";
-            this.出庫IDDataGridViewTextBoxColumn.HeaderText = "出庫ID}";
-            this.出庫IDDataGridViewTextBoxColumn.Name = "出庫IDDataGridViewTextBoxColumn";
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 20);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(346, 265);
+            this.dataGridView3.TabIndex = 0;
             // 
             // SupplyChainManager
             // 
@@ -229,6 +243,7 @@
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文BindingSource)).EndInit();
@@ -236,6 +251,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文内容BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +279,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 日付DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 合計DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 出庫IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

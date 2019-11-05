@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
-            this.仕入先BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.仕入先TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.仕入先TableAdapter();
             this.仕入先IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.企業名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.アドレス１DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +42,9 @@
             this.eメールDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.支払方法DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仕入先BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
+            this.仕入先TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.仕入先TableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.MakerIdMTB = new System.Windows.Forms.MaskedTextBox();
             this.MakerPostalCodeMTB = new System.Windows.Forms.MaskedTextBox();
@@ -73,8 +73,8 @@
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.仕入先BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -137,20 +137,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 580);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // oI21Database1DataSet
-            // 
-            this.oI21Database1DataSet.DataSetName = "OI21Database1DataSet";
-            this.oI21Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // 仕入先BindingSource
-            // 
-            this.仕入先BindingSource.DataMember = "仕入先";
-            this.仕入先BindingSource.DataSource = this.oI21Database1DataSet;
-            // 
-            // 仕入先TableAdapter
-            // 
-            this.仕入先TableAdapter.ClearBeforeFill = true;
             // 
             // 仕入先IDDataGridViewTextBoxColumn
             // 
@@ -236,6 +222,20 @@
             this.支払方法DataGridViewTextBoxColumn.Name = "支払方法DataGridViewTextBoxColumn";
             this.支払方法DataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // 仕入先BindingSource
+            // 
+            this.仕入先BindingSource.DataMember = "仕入先";
+            this.仕入先BindingSource.DataSource = this.oI21Database1DataSet;
+            // 
+            // oI21Database1DataSet
+            // 
+            this.oI21Database1DataSet.DataSetName = "OI21Database1DataSet";
+            this.oI21Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // 仕入先TableAdapter
+            // 
+            this.仕入先TableAdapter.ClearBeforeFill = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -248,7 +248,7 @@
             // MakerIdMTB
             // 
             this.MakerIdMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "仕入先ID", true));
-            this.MakerIdMTB.Location = new System.Drawing.Point(115, 34);
+            this.MakerIdMTB.Location = new System.Drawing.Point(115, 27);
             this.MakerIdMTB.Name = "MakerIdMTB";
             this.MakerIdMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerIdMTB.TabIndex = 1;
@@ -256,7 +256,7 @@
             // MakerPostalCodeMTB
             // 
             this.MakerPostalCodeMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "郵便番号", true));
-            this.MakerPostalCodeMTB.Location = new System.Drawing.Point(115, 262);
+            this.MakerPostalCodeMTB.Location = new System.Drawing.Point(115, 255);
             this.MakerPostalCodeMTB.Name = "MakerPostalCodeMTB";
             this.MakerPostalCodeMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerPostalCodeMTB.TabIndex = 3;
@@ -273,7 +273,7 @@
             // MakerAddress1MTB
             // 
             this.MakerAddress1MTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "アドレス１", true));
-            this.MakerAddress1MTB.Location = new System.Drawing.Point(115, 128);
+            this.MakerAddress1MTB.Location = new System.Drawing.Point(115, 117);
             this.MakerAddress1MTB.Name = "MakerAddress1MTB";
             this.MakerAddress1MTB.Size = new System.Drawing.Size(217, 24);
             this.MakerAddress1MTB.TabIndex = 5;
@@ -290,7 +290,7 @@
             // MakerNameMTB
             // 
             this.MakerNameMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "企業名", true));
-            this.MakerNameMTB.Location = new System.Drawing.Point(115, 81);
+            this.MakerNameMTB.Location = new System.Drawing.Point(115, 74);
             this.MakerNameMTB.Name = "MakerNameMTB";
             this.MakerNameMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerNameMTB.TabIndex = 7;
@@ -307,7 +307,7 @@
             // MakerAddress3MTB
             // 
             this.MakerAddress3MTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "住所", true));
-            this.MakerAddress3MTB.Location = new System.Drawing.Point(115, 214);
+            this.MakerAddress3MTB.Location = new System.Drawing.Point(115, 207);
             this.MakerAddress3MTB.Name = "MakerAddress3MTB";
             this.MakerAddress3MTB.Size = new System.Drawing.Size(217, 24);
             this.MakerAddress3MTB.TabIndex = 9;
@@ -324,7 +324,7 @@
             // MakerAddress2MTB
             // 
             this.MakerAddress2MTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "アドレス２", true));
-            this.MakerAddress2MTB.Location = new System.Drawing.Point(115, 172);
+            this.MakerAddress2MTB.Location = new System.Drawing.Point(115, 165);
             this.MakerAddress2MTB.Name = "MakerAddress2MTB";
             this.MakerAddress2MTB.Size = new System.Drawing.Size(217, 24);
             this.MakerAddress2MTB.TabIndex = 11;
@@ -341,7 +341,7 @@
             // MakerCountryMTB
             // 
             this.MakerCountryMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "国", true));
-            this.MakerCountryMTB.Location = new System.Drawing.Point(115, 308);
+            this.MakerCountryMTB.Location = new System.Drawing.Point(115, 301);
             this.MakerCountryMTB.Name = "MakerCountryMTB";
             this.MakerCountryMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerCountryMTB.TabIndex = 17;
@@ -358,7 +358,7 @@
             // MakerPhoneMTB
             // 
             this.MakerPhoneMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "電話番号", true));
-            this.MakerPhoneMTB.Location = new System.Drawing.Point(115, 349);
+            this.MakerPhoneMTB.Location = new System.Drawing.Point(115, 342);
             this.MakerPhoneMTB.Name = "MakerPhoneMTB";
             this.MakerPhoneMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerPhoneMTB.TabIndex = 15;
@@ -375,7 +375,7 @@
             // MakerFaxMTB
             // 
             this.MakerFaxMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "FAX", true));
-            this.MakerFaxMTB.Location = new System.Drawing.Point(115, 393);
+            this.MakerFaxMTB.Location = new System.Drawing.Point(115, 379);
             this.MakerFaxMTB.Name = "MakerFaxMTB";
             this.MakerFaxMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerFaxMTB.TabIndex = 13;
@@ -401,7 +401,7 @@
             // MakerEmailMTB
             // 
             this.MakerEmailMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "eメール", true));
-            this.MakerEmailMTB.Location = new System.Drawing.Point(115, 437);
+            this.MakerEmailMTB.Location = new System.Drawing.Point(115, 423);
             this.MakerEmailMTB.Name = "MakerEmailMTB";
             this.MakerEmailMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerEmailMTB.TabIndex = 20;
@@ -418,7 +418,7 @@
             // MakerURLMTB
             // 
             this.MakerURLMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "URL", true));
-            this.MakerURLMTB.Location = new System.Drawing.Point(115, 476);
+            this.MakerURLMTB.Location = new System.Drawing.Point(115, 469);
             this.MakerURLMTB.Name = "MakerURLMTB";
             this.MakerURLMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerURLMTB.TabIndex = 22;
@@ -435,7 +435,7 @@
             // MakerHowToPayMTB
             // 
             this.MakerHowToPayMTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.仕入先BindingSource, "支払方法", true));
-            this.MakerHowToPayMTB.Location = new System.Drawing.Point(115, 518);
+            this.MakerHowToPayMTB.Location = new System.Drawing.Point(115, 511);
             this.MakerHowToPayMTB.Name = "MakerHowToPayMTB";
             this.MakerHowToPayMTB.Size = new System.Drawing.Size(217, 24);
             this.MakerHowToPayMTB.TabIndex = 24;
@@ -459,8 +459,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.仕入先BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
