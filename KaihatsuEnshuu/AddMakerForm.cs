@@ -26,5 +26,10 @@ namespace KaihatsuEnshuu
         {
 
         }
+
+        private void NoTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
