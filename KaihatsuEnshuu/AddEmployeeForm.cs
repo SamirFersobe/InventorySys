@@ -24,7 +24,7 @@ namespace KaihatsuEnshuu
 
             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
             OleDbConnection con = new OleDbConnection(str);
-            string sql1 = "SELECT * FROM 社員ファイル";
+            string sql1 = "SELECT * FROM  emp";
 
             OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
             da.Fill(dt);

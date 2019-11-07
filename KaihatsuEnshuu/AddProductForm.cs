@@ -25,7 +25,7 @@ namespace KaihatsuEnshuu
             {
                 string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
                 OleDbConnection con = new OleDbConnection(str);
-                string sql1 = "SELECT * FROM 商品";
+                string sql1 = "SELECT * FROM products";
 
                 OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
                 da.Fill(dt);
@@ -73,21 +73,18 @@ namespace KaihatsuEnshuu
 
             name = ProductNameMaskedTextBox.Text.ToString();
             price = productPrice.Text.ToString();
-            //explanation = productExplanation.Text.ToString();
-            //category = categoryComboBox.Text.ToString();
-           // size = sizeComboBox.Text.ToString();
-            //color = colorComboBox.Text.ToString();
+
 
 
             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
             OleDbConnection con = new OleDbConnection(str);
             con.Open();
-            OleDbCommand cmmd = new OleDbCommand("INSERT INTO 商品(商品名,商品価格) Values(@Name,@Price)", con);
+           // OleDbCommand cmmd = new OleDbCommand("INSERT INTO 商品(商品名,商品価格) Values(@Name,@Price)", con);
             if(con.State == ConnectionState.Open)
             {
                // cmmd.Parameters.Add("@Category", OleDbType.VarWChar, 20).Value = category;
-                cmmd.Parameters.Add("@Name", OleDbType.VarWChar, 20).Value = name;
-                cmmd.Parameters.Add("@Price", OleDbType.Currency, 20).Value = price;
+                //cmmd.Parameters.Add("@Name", OleDbType.VarWChar, 20).Value = name;
+               // cmmd.Parameters.Add("@Price", OleDbType.Currency, 20).Value = price;
 
                // cmmd.Parameters.Add("@Price", OleDbType.VarWChar, 20).Value = price;
              //   cmmd.Parameters.Add("@Color", OleDbType.VarWChar, 20).Value = color;
@@ -95,7 +92,7 @@ namespace KaihatsuEnshuu
 
                 try
                 {
-                    cmmd.ExecuteNonQuery();
+                 //   cmmd.ExecuteNonQuery();
                     con.Close();
                 }
                 catch (OleDbException expe)
