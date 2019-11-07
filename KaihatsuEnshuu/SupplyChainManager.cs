@@ -27,7 +27,7 @@ namespace KaihatsuEnshuu
             {
                 string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
                 OleDbConnection con = new OleDbConnection(str);
-                string sql1 = "SELECT * FROM 注文";
+                string sql1 = "SELECT * FROM orders";
                
                 OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
                 da.Fill(dt1);
@@ -47,10 +47,10 @@ namespace KaihatsuEnshuu
             {
                 string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
                 OleDbConnection con = new OleDbConnection(str);
-                string sql2 = "SELECT * FROM 注文内容";
+                string sql2 = "SELECT * FROM orderDetails";
                 if (orderDetails != null) 
                 {
-                    sql2 = "SELECT * FROM 注文内容 where 注文ID = " + orderDetails;
+                    sql2 = "SELECT * FROM orderDetails where orderID  = " + orderDetails;
                 }
                 OleDbDataAdapter da2 = new OleDbDataAdapter(sql2, con);
                 da2.Fill(dt2);
@@ -75,7 +75,7 @@ namespace KaihatsuEnshuu
             string sql2 = "SELECT * FROM 注文内容";
             if (orderDetails != null)
             {
-                sql2 = "SELECT * FROM 注文内容 where 注文ID = " + orderDetails;
+                sql2 = "SELECT * FROM orderDetails where orderID = " + orderDetails;
             }
             OleDbDataAdapter da2 = new OleDbDataAdapter(sql2, con);
             dt2.Clear();
