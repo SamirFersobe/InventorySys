@@ -31,7 +31,7 @@ namespace KaihatsuEnshuu
                 da.Fill(dt);
 
                 dataGridView1.DataSource = dt;
-                MessageBox.Show("Product Values Loaded");
+                
 
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace KaihatsuEnshuu
             string color;
 
             name = ProductNameMaskedTextBox.Text.ToString();
-          //  price = productPrice.Text.ToString();
+            price = productPrice.Text.ToString();
             //explanation = productExplanation.Text.ToString();
             //category = categoryComboBox.Text.ToString();
            // size = sizeComboBox.Text.ToString();
@@ -82,11 +82,13 @@ namespace KaihatsuEnshuu
             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
             OleDbConnection con = new OleDbConnection(str);
             con.Open();
-            OleDbCommand cmmd = new OleDbCommand("INSERT INTO 商品(商品名) Values(@Name)", con);
+            OleDbCommand cmmd = new OleDbCommand("INSERT INTO 商品(商品名,商品価格) Values(@Name,@Price)", con);
             if(con.State == ConnectionState.Open)
             {
                // cmmd.Parameters.Add("@Category", OleDbType.VarWChar, 20).Value = category;
                 cmmd.Parameters.Add("@Name", OleDbType.VarWChar, 20).Value = name;
+                cmmd.Parameters.Add("@Price", OleDbType.Currency, 20).Value = price;
+
                // cmmd.Parameters.Add("@Price", OleDbType.VarWChar, 20).Value = price;
              //   cmmd.Parameters.Add("@Color", OleDbType.VarWChar, 20).Value = color;
                // cmmd.Parameters.Add("@Size", OleDbType.VarWChar, 20).Value = size;
@@ -94,7 +96,6 @@ namespace KaihatsuEnshuu
                 try
                 {
                     cmmd.ExecuteNonQuery();
-                    MessageBox.Show("DATA ADDED");
                     con.Close();
                 }
                 catch (OleDbException expe)
@@ -107,6 +108,17 @@ namespace KaihatsuEnshuu
             {
                 MessageBox.Show("CON FAILED");
             }
+
+            OleDbConnection conReload = new OleDbConnection(str);
+            string sql1 = "SELECT * FROM 商品";
+
+            OleDbDataAdapter da = new OleDbDataAdapter(sql1, conReload);
+            dt.Clear();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+           
+
+
 
 
         }

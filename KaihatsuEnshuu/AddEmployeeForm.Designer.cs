@@ -30,11 +30,6 @@
 		{
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.社員IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.社員名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.入社日DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.物流担当DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.営業担当DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.社員ファイルBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.oI21Database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oI21Database1DataSet = new KaihatsuEnshuu.OI21Database1DataSet();
@@ -78,51 +73,13 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.社員IDDataGridViewTextBoxColumn,
-            this.社員名DataGridViewTextBoxColumn,
-            this.入社日DataGridViewTextBoxColumn,
-            this.物流担当DataGridViewCheckBoxColumn,
-            this.営業担当DataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.社員ファイルBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 580);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // 社員IDDataGridViewTextBoxColumn
-            // 
-            this.社員IDDataGridViewTextBoxColumn.DataPropertyName = "社員ID";
-            this.社員IDDataGridViewTextBoxColumn.HeaderText = "社員ID";
-            this.社員IDDataGridViewTextBoxColumn.Name = "社員IDDataGridViewTextBoxColumn";
-            // 
-            // 社員名DataGridViewTextBoxColumn
-            // 
-            this.社員名DataGridViewTextBoxColumn.DataPropertyName = "社員名";
-            this.社員名DataGridViewTextBoxColumn.HeaderText = "社員名";
-            this.社員名DataGridViewTextBoxColumn.Name = "社員名DataGridViewTextBoxColumn";
-            // 
-            // 入社日DataGridViewTextBoxColumn
-            // 
-            this.入社日DataGridViewTextBoxColumn.DataPropertyName = "入社日";
-            this.入社日DataGridViewTextBoxColumn.HeaderText = "入社日";
-            this.入社日DataGridViewTextBoxColumn.Name = "入社日DataGridViewTextBoxColumn";
-            // 
-            // 物流担当DataGridViewCheckBoxColumn
-            // 
-            this.物流担当DataGridViewCheckBoxColumn.DataPropertyName = "物流担当";
-            this.物流担当DataGridViewCheckBoxColumn.HeaderText = "物流担当";
-            this.物流担当DataGridViewCheckBoxColumn.Name = "物流担当DataGridViewCheckBoxColumn";
-            // 
-            // 営業担当DataGridViewCheckBoxColumn
-            // 
-            this.営業担当DataGridViewCheckBoxColumn.DataPropertyName = "営業担当";
-            this.営業担当DataGridViewCheckBoxColumn.HeaderText = "営業担当";
-            this.営業担当DataGridViewCheckBoxColumn.Name = "営業担当DataGridViewCheckBoxColumn";
             // 
             // 社員ファイルBindingSource1
             // 
@@ -272,11 +229,6 @@
         private System.Windows.Forms.Label 入社日;
         private System.Windows.Forms.Label 社員名;
         private System.Windows.Forms.Label 社員ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 社員IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 社員名DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 入社日DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn 物流担当DataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn 営業担当DataGridViewCheckBoxColumn;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox3;

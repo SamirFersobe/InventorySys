@@ -60,5 +60,11 @@ namespace KaihatsuEnshuu
             SupplyChainManager supplyForm = new SupplyChainManager();
             supplyForm.Show();
         }
+
+        private void openStock_Click(object sender, EventArgs e)
+        {
+            StockForm stock = new StockForm();
+            stock.Show();
+        }
     }
 }

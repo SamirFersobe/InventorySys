@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace KaihatsuEnshuu
 {
@@ -15,10 +16,20 @@ namespace KaihatsuEnshuu
             InitializeComponent();
         }
 
+
+        DataTable dt = new DataTable();
         private void AddEmployeeForm_Load(object sender, EventArgs e)
         {
-            // TODO: このコード行はデータを 'oI21Database1DataSet.社員ファイル' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-            //this.社員ファイルTableAdapter.Fill(this.oI21Database1DataSet.社員ファイル);
+
+
+            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+            OleDbConnection con = new OleDbConnection(str);
+            string sql1 = "SELECT * FROM 社員ファイル";
+
+            OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
 
         }
 
