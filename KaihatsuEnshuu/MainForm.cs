@@ -66,5 +66,11 @@ namespace KaihatsuEnshuu
             StockForm stock = new StockForm();
             stock.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NewOrderForm order = new NewOrderForm();
+            order.Show();
+        }
     }
 }

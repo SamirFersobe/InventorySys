@@ -28,87 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.AddToOrderButton = new System.Windows.Forms.Button();
+            this.CancelOrder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Size = new System.Drawing.Size(352, 394);
+            this.groupBox1.Controls.Add(this.CancelOrder);
+            this.groupBox1.Controls.Add(this.AddToOrderButton);
+            this.groupBox1.Location = new System.Drawing.Point(23, 96);
+            this.groupBox1.Size = new System.Drawing.Size(566, 264);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Location = new System.Drawing.Point(615, 96);
+            this.groupBox3.Size = new System.Drawing.Size(855, 603);
+            // 
+            // AddToOrderButton
+            // 
+            this.AddToOrderButton.Location = new System.Drawing.Point(372, 77);
+            this.AddToOrderButton.Name = "AddToOrderButton";
+            this.AddToOrderButton.Size = new System.Drawing.Size(126, 45);
+            this.AddToOrderButton.TabIndex = 0;
+            this.AddToOrderButton.Text = "Add To Order";
+            this.AddToOrderButton.UseVisualStyleBackColor = true;
+            // 
+            // CancelOrder
+            // 
+            this.CancelOrder.Location = new System.Drawing.Point(372, 146);
+            this.CancelOrder.Name = "CancelOrder";
+            this.CancelOrder.Size = new System.Drawing.Size(126, 45);
+            this.CancelOrder.TabIndex = 1;
+            this.CancelOrder.Text = "Cancel";
+            this.CancelOrder.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 47);
+            this.label1.Location = new System.Drawing.Point(46, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "商品ID";
+            this.label1.Size = new System.Drawing.Size(70, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Quantity";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 83);
+            this.label2.Location = new System.Drawing.Point(46, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "商品名";
+            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Product";
             // 
-            // label3
+            // comboBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 154);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "色";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(152, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 25);
+            this.comboBox1.TabIndex = 4;
             // 
-            // label4
+            // dataGridView1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "サイズ";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(849, 580);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // label5
+            // dataGridView2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "カテゴリー";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 224);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "数量";
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(23, 366);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(566, 330);
+            this.dataGridView2.TabIndex = 12;
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.ClientSize = new System.Drawing.Size(1506, 757);
+            this.ClientSize = new System.Drawing.Size(1506, 769);
+            this.Controls.Add(this.dataGridView2);
             this.Name = "OrderForm";
             this.Text = "注文画面";
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.groupBox3, 0);
+            this.Controls.SetChildIndex(this.dataGridView2, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,11 +142,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button CancelOrder;
+        private System.Windows.Forms.Button AddToOrderButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
