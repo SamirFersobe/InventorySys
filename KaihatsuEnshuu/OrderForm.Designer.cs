@@ -35,6 +35,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -43,6 +44,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -59,16 +61,17 @@
             // 
             // AddToOrderButton
             // 
-            this.AddToOrderButton.Location = new System.Drawing.Point(372, 77);
+            this.AddToOrderButton.Location = new System.Drawing.Point(381, 63);
             this.AddToOrderButton.Name = "AddToOrderButton";
             this.AddToOrderButton.Size = new System.Drawing.Size(126, 45);
             this.AddToOrderButton.TabIndex = 0;
             this.AddToOrderButton.Text = "Add To Order";
             this.AddToOrderButton.UseVisualStyleBackColor = true;
+            this.AddToOrderButton.Click += new System.EventHandler(this.AddToOrderButton_Click);
             // 
             // CancelOrder
             // 
-            this.CancelOrder.Location = new System.Drawing.Point(372, 146);
+            this.CancelOrder.Location = new System.Drawing.Point(321, 192);
             this.CancelOrder.Name = "CancelOrder";
             this.CancelOrder.Size = new System.Drawing.Size(126, 45);
             this.CancelOrder.TabIndex = 1;
@@ -98,7 +101,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(152, 74);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 25);
+            this.comboBox1.Size = new System.Drawing.Size(196, 25);
             this.comboBox1.TabIndex = 4;
             // 
             // dataGridView1
@@ -119,6 +122,13 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(566, 330);
             this.dataGridView2.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(152, 118);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(196, 24);
+            this.textBox1.TabIndex = 5;
             // 
             // OrderForm
             // 
@@ -149,5 +159,6 @@
         private System.Windows.Forms.Button AddToOrderButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

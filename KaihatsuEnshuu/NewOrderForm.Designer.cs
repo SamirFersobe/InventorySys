@@ -103,6 +103,7 @@
             this.Controls.Add(this.newOrderButton);
             this.Name = "NewOrderForm";
             this.Text = "NewOrderForm";
+            this.Load += new System.EventHandler(this.NewOrderForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
