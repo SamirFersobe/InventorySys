@@ -30,36 +30,37 @@ namespace KaihatsuEnshuu
         private void newOrderButton_Click(object sender, EventArgs e)
         {
             string customerid, employeeid;
-              employeeid = comboBox1.SelectedValue.ToString();
-              customerid = comboBox2.SelectedValue.ToString();
+            employeeid = comboBox1.SelectedValue.ToString();
+            customerid = comboBox2.SelectedValue.ToString();
 
 
-
+            
             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
             OleDbConnection con = new OleDbConnection(str);
-
-                con.Open();
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = con;
-                command.CommandText = "insert into order (orderEmpno) VALUES (" + employeeid + ")";
-                command.ExecuteNonQuery();
-                con.Close();
-
-
-
-
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO [order](orderDate,orderEmpno,orderCustomerId) values(date(),@orderEmpno,@orderCustomerId)";
+            cmd.Parameters.AddWithValue("@orderEmpno", comboBox1.SelectedValue);
+            cmd.Parameters.AddWithValue("@orderCustomerId", comboBox2.SelectedValue); 
+            con.Open();
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("An order has been started");
 
 
+            string lastAddedId = "select id from [order]  order by orderdate desc ";
+            cmd.CommandText = lastAddedId;
+            
+            var orderId = cmd.ExecuteScalar();
+
+            MessageBox.Show(orderId.ToString());
 
 
 
-
-
-
-            MessageBox.Show("New order by "+ comboBox1.SelectedValue + " for the " + comboBox2.SelectedValue);
-            OrderForm order = new OrderForm(employeeid,customerid);
+            MessageBox.Show("New order by " + comboBox1.SelectedIndex.ToString() + " for the " + comboBox2.SelectedText.ToString());
+            OrderForm order = new OrderForm(employeeid,customerid,orderId.ToString());
             order.Show();
-            this.Close();
+            
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
