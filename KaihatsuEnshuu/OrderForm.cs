@@ -11,6 +11,21 @@ namespace KaihatsuEnshuu
 {
     public partial class OrderForm : template.Form1
     {
+
+        /**
+         *  Things we have to do , debug the system so that the functions run on the first click
+         *  also we need to make the tables display the names as they should
+         *  make selecting items easier and faster so as to increase 注文スピード
+         * 
+         * 
+         * 
+         * 
+         * 
+         
+             
+             
+             
+         **/
         string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
         public OrderForm(string customerID , string employeeID, string orderId)
         {
@@ -82,6 +97,8 @@ namespace KaihatsuEnshuu
             string sql2 = "INSERT INTO orderDetails(orderId,customerId,pId,quantity,pCurrentPrice) values (@orderId,@customerId,@pId,@quantity,@pCurrentPrice)";
             cmd.CommandText = sql2;
 
+
+            
             try
             {
 
@@ -100,6 +117,124 @@ namespace KaihatsuEnshuu
             {
                 MessageBox.Show(ex.Message);
             }
+
+            try
+            {
+                DataTable dt3 = new DataTable();
+                OleDbConnection con3 = new OleDbConnection(DatabaseConnectionString);
+                string sql3 = "SELECT  * FROM orderDetails where orderId = " + orderString;
+
+                OleDbDataAdapter da = new OleDbDataAdapter(sql3, con3);
+                da.Fill(dt3);
+
+                dataGridView2.DataSource = dt3;
+                // MessageBox.Show("Values loaded ...!!!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 3");
+            }
+            dataGridView2.Refresh();
         }
+
+        private void CancelOrder_Click(object sender, EventArgs e)
+        {
+            deleteLastOrder();
+
+        }
+
+
+        private void deleteAllAddedItems()
+        {
+            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+
+            con.Open();//opening connection
+            string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
+            cmd.CommandText = lastAddedId;
+            string orderString = cmd.ExecuteScalar().ToString();
+            string cmdString = "DELETE * from orderdetails where orderid = " + orderString;
+            cmd.CommandText = cmdString;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+            reloadDGV(orderString);
+            
+        }
+
+
+        private void deleteLastOrder()
+        {
+
+            deleteAllAddedItems();
+            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+
+            con.Open();//opening connection
+            string currentItem = comboBox1.SelectedValue.ToString();
+            string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
+            cmd.CommandText = lastAddedId;
+            string orderString = cmd.ExecuteScalar().ToString();
+            string cmdString = "DELETE * from [order] where id = " + orderString;
+            cmd.CommandText = cmdString;
+            cmd.ExecuteNonQuery();
+
+            this.Close();
+
+            
+        }
+       
+ 
+        
+
+
+        private void reloadDGV(string orderString)
+        {
+
+            try
+            {
+                DataTable dt3 = new DataTable();
+                OleDbConnection con3 = new OleDbConnection(DatabaseConnectionString);
+                string sql3 = "SELECT  * FROM orderDetails where orderId = " + orderString;
+
+                OleDbDataAdapter da = new OleDbDataAdapter(sql3, con3);
+                da.Fill(dt3);
+
+                dataGridView2.DataSource = dt3;
+                // MessageBox.Show("Values loaded ...!!!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 3");
+            }
+            dataGridView2.Refresh();
+
+        }
+
+        private void ClearOrder_Click(object sender, MouseEventArgs e)
+        {
+            deleteAllAddedItems();
+
+
+        }
+
+
+    
     }
+
+   
+
+
 }

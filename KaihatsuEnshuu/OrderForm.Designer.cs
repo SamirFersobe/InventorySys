@@ -36,6 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ClearOrder = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -44,6 +45,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ClearOrder);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
@@ -71,12 +73,13 @@
             // 
             // CancelOrder
             // 
-            this.CancelOrder.Location = new System.Drawing.Point(321, 192);
+            this.CancelOrder.Location = new System.Drawing.Point(381, 179);
             this.CancelOrder.Name = "CancelOrder";
             this.CancelOrder.Size = new System.Drawing.Size(126, 45);
             this.CancelOrder.TabIndex = 1;
             this.CancelOrder.Text = "Cancel";
             this.CancelOrder.UseVisualStyleBackColor = true;
+            this.CancelOrder.Click += new System.EventHandler(this.CancelOrder_Click);
             // 
             // label1
             // 
@@ -130,6 +133,15 @@
             this.textBox1.Size = new System.Drawing.Size(196, 24);
             this.textBox1.TabIndex = 5;
             // 
+            // ClearOrder
+            // 
+            this.ClearOrder.Location = new System.Drawing.Point(381, 118);
+            this.ClearOrder.Name = "ClearOrder";
+            this.ClearOrder.Size = new System.Drawing.Size(126, 44);
+            this.ClearOrder.TabIndex = 6;
+            this.ClearOrder.Text = "Clear Items";
+            this.ClearOrder.UseVisualStyleBackColor = true;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button ClearOrder;
     }
 }

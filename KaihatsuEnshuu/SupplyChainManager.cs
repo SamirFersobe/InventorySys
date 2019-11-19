@@ -22,12 +22,12 @@ namespace KaihatsuEnshuu
         private void SupplyChainManager_Load(object sender, EventArgs e)
         {
 
-
+            //loading all the values for the order table
             try
             {
                 string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
                 OleDbConnection con = new OleDbConnection(str);
-                string sql1 = "SELECT * FROM orders";
+                string sql1 = "SELECT * FROM [order]";
                
                 OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
                 da.Fill(dt1);
@@ -43,25 +43,7 @@ namespace KaihatsuEnshuu
 
 
 
-            try
-            {
-                string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
-                OleDbConnection con = new OleDbConnection(str);
-                string sql2 = "SELECT * FROM orderDetails";
-                if (orderDetails != null) 
-                {
-                    sql2 = "SELECT * FROM orderDetails where orderID  = " + orderDetails;
-                }
-                OleDbDataAdapter da2 = new OleDbDataAdapter(sql2, con);
-                da2.Fill(dt2);
-                dataGridView2.DataSource = dt2;
-                MessageBox.Show("Values for database 2 loaded !");
 
-            }
-            catch(Exception ex2)
-            {
-                MessageBox.Show(ex2.Message + "2");
-            }
 
         }
 
@@ -72,10 +54,10 @@ namespace KaihatsuEnshuu
                  orderDetails =  dataGridView1.CurrentCell.Value.ToString();
             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
             OleDbConnection con = new OleDbConnection(str);
-            string sql2 = "SELECT * FROM 注文内容";
+            string sql2 = "SELECT * FROM orderDetails";
             if (orderDetails != null)
             {
-                sql2 = "SELECT * FROM orderDetails where orderID = " + orderDetails;
+                sql2 = "SELECT products.pName,products.Pbrand,orderdetails.pCurrentPrice FROM orderDetails inner join products on (products.pid = orderdetails.pid) where orderID = " + orderDetails;
             }
             OleDbDataAdapter da2 = new OleDbDataAdapter(sql2, con);
             dt2.Clear();
