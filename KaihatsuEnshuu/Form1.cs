@@ -13,6 +13,8 @@ namespace template
 {
     public partial class Form1 : Form
     {
+
+     string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
         public Form1()
         {
             InitializeComponent();
@@ -28,8 +30,7 @@ namespace template
         {
 
             DataTable dt = new DataTable();
-            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
-            OleDbConnection con = new OleDbConnection(str);
+            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
             string sql1 = "SELECT " + displayMember + "  , " + valueMember + " FROM " + table;
             con.Open();
             OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
@@ -41,6 +42,17 @@ namespace template
             combo.ValueMember = valueMember;
 
             con.Close();
+        }
+
+
+        public void reloadDataGridView(string sql, DataGridView dataGridView1)
+        {
+            DataTable dt = new DataTable();
+            OleDbConnection conReload = new OleDbConnection(DatabaseConnectionString);
+            OleDbDataAdapter da = new OleDbDataAdapter(sql, conReload);
+            dt.Clear();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
     }
 }

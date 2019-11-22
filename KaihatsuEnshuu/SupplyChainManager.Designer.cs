@@ -37,6 +37,11 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.注文内容BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.注文内容TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.注文内容TableAdapter();
+            this.UpdateOrder = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CancelOrder = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文BindingSource)).BeginInit();
@@ -48,6 +53,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CancelOrder);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.UpdateOrder);
             this.groupBox1.Size = new System.Drawing.Size(352, 288);
             // 
             // groupBox3
@@ -109,6 +118,43 @@
             // 
             this.注文内容TableAdapter.ClearBeforeFill = true;
             // 
+            // UpdateOrder
+            // 
+            this.UpdateOrder.ForeColor = System.Drawing.Color.Black;
+            this.UpdateOrder.Location = new System.Drawing.Point(19, 221);
+            this.UpdateOrder.Name = "UpdateOrder";
+            this.UpdateOrder.Size = new System.Drawing.Size(81, 45);
+            this.UpdateOrder.TabIndex = 0;
+            this.UpdateOrder.Text = "Update";
+            this.UpdateOrder.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(150, 69);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(148, 25);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Update Status";
+            // 
+            // CancelOrder
+            // 
+            this.CancelOrder.ForeColor = System.Drawing.Color.Black;
+            this.CancelOrder.Location = new System.Drawing.Point(119, 221);
+            this.CancelOrder.Name = "CancelOrder";
+            this.CancelOrder.Size = new System.Drawing.Size(81, 45);
+            this.CancelOrder.TabIndex = 3;
+            this.CancelOrder.Text = "Cancel Order";
+            this.CancelOrder.UseVisualStyleBackColor = true;
+            // 
             // SupplyChainManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -120,6 +166,8 @@
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文BindingSource)).EndInit();
@@ -141,5 +189,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource 注文内容BindingSource;
         private OI21Database1DataSetTableAdapters.注文内容TableAdapter 注文内容TableAdapter;
+        private System.Windows.Forms.Button CancelOrder;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button UpdateOrder;
     }
 }

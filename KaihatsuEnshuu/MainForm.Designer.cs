@@ -70,7 +70,7 @@
             // 
             // AddMakerButton
             // 
-            this.AddMakerButton.Location = new System.Drawing.Point(161, 282);
+            this.AddMakerButton.Location = new System.Drawing.Point(211, 282);
             this.AddMakerButton.Name = "AddMakerButton";
             this.AddMakerButton.Size = new System.Drawing.Size(201, 108);
             this.AddMakerButton.TabIndex = 3;
@@ -100,7 +100,7 @@
             // 
             // openStock
             // 
-            this.openStock.Location = new System.Drawing.Point(342, 65);
+            this.openStock.Location = new System.Drawing.Point(259, 65);
             this.openStock.Name = "openStock";
             this.openStock.Size = new System.Drawing.Size(151, 51);
             this.openStock.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(541, 37);
+            this.button2.Location = new System.Drawing.Point(632, 41);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 79);
             this.button2.TabIndex = 7;

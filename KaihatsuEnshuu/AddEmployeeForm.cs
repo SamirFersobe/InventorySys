@@ -11,31 +11,48 @@ namespace KaihatsuEnshuu
 {
     public partial class AddEmployeeForm : template.Form1
     {
+
+
+        String sqlQuery = "select * from emp";
         public AddEmployeeForm()
         {
             InitializeComponent();
         }
 
 
-        DataTable dt = new DataTable();
+   
         private void AddEmployeeForm_Load(object sender, EventArgs e)
         {
-
-
-            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
-            OleDbConnection con = new OleDbConnection(str);
-            string sql1 = "SELECT * FROM  emp";
-
-            OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
-            da.Fill(dt);
-
-            dataGridView1.DataSource = dt;
+            reloadDataGridView(sqlQuery,  dataGridView1); //load datagridview with the values from sqlQuery
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void addEmployee_Click(object sender, EventArgs e)
         {
+
+            string name = employeeName.Text.ToString();
+            string dateTime = hiredate.Value.ToString();
+            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+            OleDbConnection con = new OleDbConnection(str);
+            con.Open();
+            OleDbCommand cmmd = new OleDbCommand("INSERT INTO emp(empname,hiredate) Values(@Name,@hiredate)", con);
+            if (con.State == ConnectionState.Open)
+            {
+                cmmd.Parameters.AddWithValue("@Name", name);
+                cmmd.Parameters.AddWithValue("@hiredate", dateTime);
+                cmmd.ExecuteNonQuery();
+
+                reloadDataGridView(sqlQuery,  dataGridView1);
+
+            }
+            con.Close();
+
+
+            reloadDataGridView(sqlQuery, dataGridView1);
             
+
+
+
         }
     }
 }

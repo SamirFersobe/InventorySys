@@ -15,23 +15,18 @@ namespace KaihatsuEnshuu
         {
             InitializeComponent();
         }
-        DataTable dt = new DataTable();
+
+        String sqlQuery = "select * from products";
         private void AddProductForm_Load(object sender, EventArgs e)
         {
 
-            // change to OLEDB 
+            
 
             try
             {
-                string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
-                OleDbConnection con = new OleDbConnection(str);
-                string sql1 = "SELECT * FROM products";
 
-                OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
-                da.Fill(dt);
+                reloadDataGridView(sqlQuery, dataGridView1);
 
-                dataGridView1.DataSource = dt;
-                
 
             }
             catch (Exception ex)
@@ -41,15 +36,6 @@ namespace KaihatsuEnshuu
 
 
             
-                // TODO: このコード行はデータを 'oI21Database1DataSet.カテゴリー' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-                this.カテゴリーTableAdapter.Fill(this.oI21Database1DataSet.カテゴリー);
-                // TODO: このコード行はデータを 'oI21Database1DataSet.サイズ' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-                this.サイズTableAdapter.Fill(this.oI21Database1DataSet.サイズ);
-                // TODO: このコード行はデータを 'oI21Database1DataSet.色' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-                this.色TableAdapter.Fill(this.oI21Database1DataSet.色);
-                // TODO: このコード行はデータを 'oI21Database1DataSet.商品' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-                this.商品TableAdapter.Fill(this.oI21Database1DataSet.商品);
-
 
                 DataGridView dgv = dataGridView1;
 
@@ -65,34 +51,29 @@ namespace KaihatsuEnshuu
         private void addProductButton_Click(object sender, EventArgs e)
         {
             string name;
-            string price;
-            string explanation;
-            string category;
-            string size;
-            string color;
+            int  price;
+            string brand;
 
             name = ProductNameMaskedTextBox.Text.ToString();
-            price = productPrice.Text.ToString();
+            price = Convert.ToInt32(productPrice.Text);
+            brand = brandTextBox.Text.ToString();
 
 
 
             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
             OleDbConnection con = new OleDbConnection(str);
             con.Open();
-           // OleDbCommand cmmd = new OleDbCommand("INSERT INTO 商品(商品名,商品価格) Values(@Name,@Price)", con);
+            OleDbCommand cmmd = new OleDbCommand("INSERT INTO products(pName,pBrand,pPrice) Values(@Name,@Brand,@Price)", con);
             if(con.State == ConnectionState.Open)
             {
-               // cmmd.Parameters.Add("@Category", OleDbType.VarWChar, 20).Value = category;
-                //cmmd.Parameters.Add("@Name", OleDbType.VarWChar, 20).Value = name;
-               // cmmd.Parameters.Add("@Price", OleDbType.Currency, 20).Value = price;
-
-               // cmmd.Parameters.Add("@Price", OleDbType.VarWChar, 20).Value = price;
-             //   cmmd.Parameters.Add("@Color", OleDbType.VarWChar, 20).Value = color;
-               // cmmd.Parameters.Add("@Size", OleDbType.VarWChar, 20).Value = size;
+               cmmd.Parameters.AddWithValue("@Brand",brand );
+               cmmd.Parameters.AddWithValue("@Name", name);
+               cmmd.Parameters.AddWithValue("@Price", price);
+               cmmd.ExecuteNonQuery();
 
                 try
                 {
-                 //   cmmd.ExecuteNonQuery();
+                    
                     con.Close();
                 }
                 catch (OleDbException expe)
@@ -106,19 +87,17 @@ namespace KaihatsuEnshuu
                 MessageBox.Show("CON FAILED");
             }
 
-            OleDbConnection conReload = new OleDbConnection(str);
-            string sql1 = "SELECT * FROM 商品";
 
-            OleDbDataAdapter da = new OleDbDataAdapter(sql1, conReload);
-            dt.Clear();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            
+            reloadDataGridView(sqlQuery,dataGridView1);
            
 
 
 
 
         }
+
+
     }
     }
 

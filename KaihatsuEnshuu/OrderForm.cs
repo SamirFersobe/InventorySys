@@ -92,7 +92,9 @@ namespace KaihatsuEnshuu
             lastAddedId = "select orderCustomerId from [order]  order by orderdate desc ";
             cmd.CommandText = lastAddedId;
             string customerString = cmd.ExecuteScalar().ToString();
-            double price = 944;
+            string priceString = "select pprice from products where pid = " + comboBox1.SelectedValue.ToString();
+            cmd.CommandText = priceString;
+            int price = Convert.ToInt32(cmd.ExecuteScalar());
 
             string sql2 = "INSERT INTO orderDetails(orderId,customerId,pId,quantity,pCurrentPrice) values (@orderId,@customerId,@pId,@quantity,@pCurrentPrice)";
             cmd.CommandText = sql2;

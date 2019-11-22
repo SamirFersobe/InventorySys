@@ -119,6 +119,9 @@
     <Compile Include="SupplyChainManager.Designer.cs">
       <DependentUpon>SupplyChainManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCustomerForm.resx">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
