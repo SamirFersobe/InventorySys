@@ -11,38 +11,20 @@ namespace KaihatsuEnshuu
 {
     public partial class OrderForm : template.Form1
     {
+        string currentOrderString;
 
-        /**
-         *  Things we have to do , debug the system so that the functions run on the first click
-         *  also we need to make the tables display the names as they should
-         *  make selecting items easier and faster so as to increase 注文スピード
-         * 
-         * 
-         * 
-         * 
-         * 
-         
-             
-             
-             
-         **/
         string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
         public OrderForm(string customerID , string employeeID, string orderId)
         {
-            DataTable dt1 = new DataTable();
-            DataTable dt2 = new DataTable();
+
+            
             InitializeComponent();
 
             try
             {
-                OleDbConnection con1 = new OleDbConnection(DatabaseConnectionString);
+              
                 string sql1 = "SELECT pBrand,pName,Pprice FROM products";
-
-                OleDbDataAdapter da = new OleDbDataAdapter(sql1, con1);
-                da.Fill(dt1);
-
-                dataGridView1.DataSource = dt1;
-                //MessageBox.Show("Values loaded ...!!!");
+                reloadDataGridView(sql1, dataGridView1);
 
             }
             catch (Exception ex)
@@ -52,13 +34,9 @@ namespace KaihatsuEnshuu
 
             try
             {
-                OleDbConnection con2 = new OleDbConnection(DatabaseConnectionString);
-                string sql2 = "SELECT  * FROM orderDetails where orderId = " + orderId;
-
-                OleDbDataAdapter da = new OleDbDataAdapter(sql2, con2);
-                da.Fill(dt2);
-
-                dataGridView2.DataSource = dt2;
+                
+                currentOrderString = "SELECT  * FROM orderDetails where orderId = " + orderId;
+                reloadDataGridView(currentOrderString, dataGridView2);
                // MessageBox.Show("Values loaded ...!!!");
 
             }
@@ -108,7 +86,7 @@ namespace KaihatsuEnshuu
                 cmd.Parameters.AddWithValue("@orderId", orderString);
                 cmd.Parameters.AddWithValue("@customerId", customerString);
                 cmd.Parameters.AddWithValue("@pId", comboBox1.SelectedValue.ToString());
-                cmd.Parameters.AddWithValue("@quanity", textBox1.Text.ToString());
+                cmd.Parameters.AddWithValue("@quantity", textBox1.Text.ToString());
                 cmd.Parameters.AddWithValue("@pCurrentPrice", price);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show(" Item added to list");
@@ -122,32 +100,27 @@ namespace KaihatsuEnshuu
 
             try
             {
-                DataTable dt3 = new DataTable();
-                OleDbConnection con3 = new OleDbConnection(DatabaseConnectionString);
+ 
                 string sql3 = "SELECT  * FROM orderDetails where orderId = " + orderString;
-
-                OleDbDataAdapter da = new OleDbDataAdapter(sql3, con3);
-                da.Fill(dt3);
-
-                dataGridView2.DataSource = dt3;
-                // MessageBox.Show("Values loaded ...!!!");
+                reloadDataGridView(sql3, dataGridView2);
+           
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " 3");
             }
-            dataGridView2.Refresh();
+            
         }
 
         private void CancelOrder_Click(object sender, EventArgs e)
         {
-            deleteLastOrder();
+            DeleteLastOrder();
 
         }
 
 
-        private void deleteAllAddedItems()
+        private void DeleteAllAddedItems()
         {
             OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
             OleDbCommand cmd = new OleDbCommand();
@@ -163,21 +136,22 @@ namespace KaihatsuEnshuu
             try
             {
                 cmd.ExecuteNonQuery();
+                reloadDataGridView(currentOrderString, dataGridView2);
             }
             catch(Exception ex)
             {
 
             }
-
-            reloadDGV(orderString);
+            MessageBox.Show("Items have been deleted");
+            reloadDataGridView(currentOrderString,dataGridView2);
             
         }
 
 
-        private void deleteLastOrder()
+        private void DeleteLastOrder()
         {
 
-            deleteAllAddedItems();
+            DeleteAllAddedItems();
             OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = con;
@@ -196,44 +170,34 @@ namespace KaihatsuEnshuu
 
             
         }
-       
- 
-        
 
-
-        private void reloadDGV(string orderString)
+        private void ClearOrder_Click(object sender, EventArgs e)
         {
-
-            try
-            {
-                DataTable dt3 = new DataTable();
-                OleDbConnection con3 = new OleDbConnection(DatabaseConnectionString);
-                string sql3 = "SELECT  * FROM orderDetails where orderId = " + orderString;
-
-                OleDbDataAdapter da = new OleDbDataAdapter(sql3, con3);
-                da.Fill(dt3);
-
-                dataGridView2.DataSource = dt3;
-                // MessageBox.Show("Values loaded ...!!!");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + " 3");
-            }
-            dataGridView2.Refresh();
-
+            DeleteAllAddedItems();
+            
+            
         }
 
-        private void ClearOrder_Click(object sender, MouseEventArgs e)
+        private void SubmitButton_Click(object sender, EventArgs e)
         {
-            deleteAllAddedItems();
+            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
 
+            con.Open();//opening connection
+            string currentItem = comboBox1.SelectedValue.ToString();
+            string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
+            cmd.CommandText = lastAddedId;
+            string orderString = cmd.ExecuteScalar().ToString();
 
+            //-1 Implies a YES and  0 is False
+            string cmdString = "update [order] set orderrequest = -1 where id = " + orderString;
+            cmd.CommandText = cmdString;
+            cmd.ExecuteNonQuery();
+
+            this.Close();
         }
-
-
-    
     }
 
    

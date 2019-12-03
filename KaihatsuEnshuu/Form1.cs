@@ -14,7 +14,7 @@ namespace template
     public partial class Form1 : Form
     {
 
-     string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+     public string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
         public Form1()
         {
             InitializeComponent();
@@ -53,6 +53,7 @@ namespace template
             dt.Clear();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+           
         }
     }
 }

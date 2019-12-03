@@ -37,6 +37,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ClearOrder = new System.Windows.Forms.Button();
+            this.SubmitButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -45,6 +46,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.SubmitButton);
             this.groupBox1.Controls.Add(this.ClearOrder);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -141,6 +143,17 @@
             this.ClearOrder.TabIndex = 6;
             this.ClearOrder.Text = "Clear Items";
             this.ClearOrder.UseVisualStyleBackColor = true;
+            this.ClearOrder.Click += new System.EventHandler(this.ClearOrder_Click);
+            // 
+            // SubmitButton
+            // 
+            this.SubmitButton.Location = new System.Drawing.Point(104, 188);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(188, 36);
+            this.SubmitButton.TabIndex = 7;
+            this.SubmitButton.Text = "Submit";
+            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // OrderForm
             // 
@@ -173,5 +186,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button ClearOrder;
+        private System.Windows.Forms.Button SubmitButton;
     }
 }

@@ -129,7 +129,7 @@
             this.productPrice.Location = new System.Drawing.Point(139, 139);
             this.productPrice.Name = "productPrice";
             this.productPrice.Size = new System.Drawing.Size(198, 24);
-            this.productPrice.TabIndex = 8;
+            this.productPrice.TabIndex = 7;
             // 
             // 色BindingSource
             // 
