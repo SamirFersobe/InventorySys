@@ -84,7 +84,7 @@ namespace KaihatsuEnshuu
             MessageBox.Show("Order has been approved");
         }
 
-        private void CheckParticularOrderStock(string orderIdString)
+        private Boolean CheckParticularOrderStock(string orderIdString)
         {
             //check
             string sqlQuery = "select pid, sum(quantity) from orderDetails where orderId =  " + orderIdString + " group by pID";
@@ -94,7 +94,7 @@ namespace KaihatsuEnshuu
             cmd.Connection = con;
             cmd.CommandType = CommandType.Text;
             var items = new List<MyData>();
-
+            Boolean flag = false;
             using (con)
             {
                 cmd.CommandText = sqlQuery;
@@ -102,7 +102,7 @@ namespace KaihatsuEnshuu
                 {
                     while (dr.Read())
                     {
-                        var item = new MyData() {
+                            var item = new MyData() {
                             productId = Convert.ToInt32(dr[0]),
                             productQuantity = Convert.ToInt32(dr[1])
                     };
@@ -117,25 +117,29 @@ namespace KaihatsuEnshuu
 
                     }
 
+                    
                     string lacking = "";
                     foreach (var item1 in items)
                     {
                         if (!item1.stockAvaiable)
                         {
+                             flag = true;
                              lacking = "\n Add " + item1.productId.ToString() + lacking;
                         }
                     }
 
 
-                    MessageBox.Show(lacking);
+                    //MessageBox.Show(lacking);
                 }
+
+               
             }
-
-
+             // if true then it means that there are items lacking
+            return flag;
 
         }
 
-        //
+        
 
         private Boolean CheckParticularProductStock(int pid,int requiredQuantity)
         {
@@ -162,7 +166,10 @@ namespace KaihatsuEnshuu
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CheckParticularOrderStock(this.orderDetails);
+            if (CheckParticularOrderStock(this.orderDetails))
+            {
+                MessageBox.Show("Items required to complete order");
+            }
         }
     }
 }

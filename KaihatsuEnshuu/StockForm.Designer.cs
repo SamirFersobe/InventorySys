@@ -34,6 +34,7 @@
             this.AddStock = new System.Windows.Forms.Button();
             this.stockIdComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.restockExistingOrders = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -43,6 +44,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.restockExistingOrders);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.stockIdComboBox);
             this.groupBox1.Controls.Add(this.AddStock);
@@ -83,7 +85,7 @@
             // 
             // AddStock
             // 
-            this.AddStock.Location = new System.Drawing.Point(94, 197);
+            this.AddStock.Location = new System.Drawing.Point(90, 92);
             this.AddStock.Name = "AddStock";
             this.AddStock.Size = new System.Drawing.Size(129, 63);
             this.AddStock.TabIndex = 0;
@@ -100,7 +102,7 @@
             "3",
             "4",
             "5"});
-            this.stockIdComboBox.Location = new System.Drawing.Point(159, 141);
+            this.stockIdComboBox.Location = new System.Drawing.Point(158, 41);
             this.stockIdComboBox.Name = "stockIdComboBox";
             this.stockIdComboBox.Size = new System.Drawing.Size(77, 25);
             this.stockIdComboBox.TabIndex = 1;
@@ -108,11 +110,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 144);
+            this.label1.Location = new System.Drawing.Point(68, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "SHOP ID";
+            // 
+            // restockExistingOrders
+            // 
+            this.restockExistingOrders.Location = new System.Drawing.Point(90, 170);
+            this.restockExistingOrders.Name = "restockExistingOrders";
+            this.restockExistingOrders.Size = new System.Drawing.Size(129, 69);
+            this.restockExistingOrders.TabIndex = 3;
+            this.restockExistingOrders.Text = "Restock Current Orders";
+            this.restockExistingOrders.UseVisualStyleBackColor = true;
+            this.restockExistingOrders.Click += new System.EventHandler(this.restockExistingOrders_Click);
             // 
             // StockForm
             // 
@@ -143,5 +155,6 @@
         private System.Windows.Forms.Button AddStock;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox stockIdComboBox;
+        private System.Windows.Forms.Button restockExistingOrders;
     }
 }
