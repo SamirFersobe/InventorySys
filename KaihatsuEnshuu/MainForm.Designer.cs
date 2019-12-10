@@ -38,9 +38,9 @@
             // 
             // AddProductButton
             // 
-            this.AddProductButton.Location = new System.Drawing.Point(72, 131);
+            this.AddProductButton.Location = new System.Drawing.Point(40, 236);
             this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(181, 108);
+            this.AddProductButton.Size = new System.Drawing.Size(213, 126);
             this.AddProductButton.TabIndex = 0;
             this.AddProductButton.Text = "商品登録";
             this.AddProductButton.UseVisualStyleBackColor = true;
@@ -48,7 +48,7 @@
             // 
             // AddClientButton
             // 
-            this.AddClientButton.Location = new System.Drawing.Point(515, 131);
+            this.AddClientButton.Location = new System.Drawing.Point(515, 235);
             this.AddClientButton.Name = "AddClientButton";
             this.AddClientButton.Size = new System.Drawing.Size(222, 127);
             this.AddClientButton.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // AddEmployeeButton
             // 
-            this.AddEmployeeButton.Location = new System.Drawing.Point(270, 131);
+            this.AddEmployeeButton.Location = new System.Drawing.Point(270, 236);
             this.AddEmployeeButton.Name = "AddEmployeeButton";
             this.AddEmployeeButton.Size = new System.Drawing.Size(222, 126);
             this.AddEmployeeButton.TabIndex = 2;
@@ -68,19 +68,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(72, 37);
+            this.button1.Location = new System.Drawing.Point(40, 37);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 79);
+            this.button1.Size = new System.Drawing.Size(195, 110);
             this.button1.TabIndex = 5;
-            this.button1.Text = "物量担当者";
+            this.button1.Text = "物流担当者";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // openStock
             // 
-            this.openStock.Location = new System.Drawing.Point(291, 37);
+            this.openStock.Location = new System.Drawing.Point(270, 37);
             this.openStock.Name = "openStock";
-            this.openStock.Size = new System.Drawing.Size(201, 79);
+            this.openStock.Size = new System.Drawing.Size(222, 110);
             this.openStock.TabIndex = 6;
             this.openStock.Text = "ストック表";
             this.openStock.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(515, 37);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 79);
+            this.button2.Size = new System.Drawing.Size(222, 110);
             this.button2.TabIndex = 7;
             this.button2.Text = "注文";
             this.button2.UseVisualStyleBackColor = true;
@@ -100,6 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.openStock);
@@ -107,6 +108,7 @@
             this.Controls.Add(this.AddEmployeeButton);
             this.Controls.Add(this.AddClientButton);
             this.Controls.Add(this.AddProductButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainForm";
             this.Text = "Administrator";
             this.Load += new System.EventHandler(this.MainForm_Load);

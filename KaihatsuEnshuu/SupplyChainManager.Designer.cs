@@ -39,7 +39,10 @@
             this.注文内容TableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.注文内容TableAdapter();
             this.ApproveOrder = new System.Windows.Forms.Button();
             this.CancelOrder = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SendOrder = new System.Windows.Forms.Button();
+            this.DisplaySentOrders = new System.Windows.Forms.Button();
+            this.DisplayOrders = new System.Windows.Forms.Button();
+            this.DisplayCanceledOrders = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).BeginInit();
@@ -52,15 +55,21 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.DisplayCanceledOrders);
+            this.groupBox1.Controls.Add(this.DisplayOrders);
+            this.groupBox1.Controls.Add(this.DisplaySentOrders);
+            this.groupBox1.Controls.Add(this.SendOrder);
             this.groupBox1.Controls.Add(this.CancelOrder);
             this.groupBox1.Controls.Add(this.ApproveOrder);
-            this.groupBox1.Size = new System.Drawing.Size(352, 288);
-            this.groupBox1.Text = "ApproveOrder";
+            this.groupBox1.Location = new System.Drawing.Point(18, 21);
+            this.groupBox1.Size = new System.Drawing.Size(644, 296);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Location = new System.Drawing.Point(671, 21);
+            this.groupBox3.Size = new System.Drawing.Size(823, 698);
+            this.groupBox3.Text = "注文内容";
             // 
             // oI21Database1DataSet
             // 
@@ -80,12 +89,12 @@
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(15, 419);
+            this.groupBox2.Location = new System.Drawing.Point(15, 323);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 285);
+            this.groupBox2.Size = new System.Drawing.Size(650, 393);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "注文一覧";
             // 
             // dataGridView1
             // 
@@ -94,7 +103,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(346, 264);
+            this.dataGridView1.Size = new System.Drawing.Size(644, 372);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -105,7 +114,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(3, 20);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1097, 580);
+            this.dataGridView2.Size = new System.Drawing.Size(817, 675);
             this.dataGridView2.TabIndex = 0;
             // 
             // 注文内容BindingSource
@@ -121,33 +130,70 @@
             // 
             this.ApproveOrder.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ApproveOrder.ForeColor = System.Drawing.Color.Black;
-            this.ApproveOrder.Location = new System.Drawing.Point(19, 221);
+            this.ApproveOrder.Location = new System.Drawing.Point(440, 99);
             this.ApproveOrder.Name = "ApproveOrder";
-            this.ApproveOrder.Size = new System.Drawing.Size(81, 45);
+            this.ApproveOrder.Size = new System.Drawing.Size(161, 57);
             this.ApproveOrder.TabIndex = 0;
-            this.ApproveOrder.Text = "Approve Order";
+            this.ApproveOrder.Text = "注文確認";
             this.ApproveOrder.UseVisualStyleBackColor = false;
             this.ApproveOrder.Click += new System.EventHandler(this.ApproveOrder_Click);
             // 
             // CancelOrder
             // 
             this.CancelOrder.ForeColor = System.Drawing.Color.Black;
-            this.CancelOrder.Location = new System.Drawing.Point(241, 221);
+            this.CancelOrder.Location = new System.Drawing.Point(440, 162);
             this.CancelOrder.Name = "CancelOrder";
-            this.CancelOrder.Size = new System.Drawing.Size(81, 45);
+            this.CancelOrder.Size = new System.Drawing.Size(161, 52);
             this.CancelOrder.TabIndex = 3;
-            this.CancelOrder.Text = "Cancel Order";
+            this.CancelOrder.Text = "注文キャンセル";
             this.CancelOrder.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // SendOrder
             // 
-            this.button1.Location = new System.Drawing.Point(74, 89);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SendOrder.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SendOrder.ForeColor = System.Drawing.Color.Black;
+            this.SendOrder.Location = new System.Drawing.Point(440, 220);
+            this.SendOrder.Name = "SendOrder";
+            this.SendOrder.Size = new System.Drawing.Size(161, 56);
+            this.SendOrder.TabIndex = 4;
+            this.SendOrder.Text = "注文発送";
+            this.SendOrder.UseVisualStyleBackColor = false;
+            // 
+            // DisplaySentOrders
+            // 
+            this.DisplaySentOrders.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.DisplaySentOrders.ForeColor = System.Drawing.Color.Black;
+            this.DisplaySentOrders.Location = new System.Drawing.Point(6, 109);
+            this.DisplaySentOrders.Name = "DisplaySentOrders";
+            this.DisplaySentOrders.Size = new System.Drawing.Size(211, 91);
+            this.DisplaySentOrders.TabIndex = 5;
+            this.DisplaySentOrders.Text = "発送した注文一覧";
+            this.DisplaySentOrders.UseVisualStyleBackColor = false;
+            this.DisplaySentOrders.Click += new System.EventHandler(this.DisplaySentOrders_Click);
+            // 
+            // DisplayOrders
+            // 
+            this.DisplayOrders.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.DisplayOrders.ForeColor = System.Drawing.Color.Black;
+            this.DisplayOrders.Location = new System.Drawing.Point(6, 23);
+            this.DisplayOrders.Name = "DisplayOrders";
+            this.DisplayOrders.Size = new System.Drawing.Size(211, 80);
+            this.DisplayOrders.TabIndex = 6;
+            this.DisplayOrders.Text = "注文一覧";
+            this.DisplayOrders.UseVisualStyleBackColor = false;
+            this.DisplayOrders.Click += new System.EventHandler(this.DisplayOrders_Click);
+            // 
+            // DisplayCanceledOrders
+            // 
+            this.DisplayCanceledOrders.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.DisplayCanceledOrders.ForeColor = System.Drawing.Color.Black;
+            this.DisplayCanceledOrders.Location = new System.Drawing.Point(6, 206);
+            this.DisplayCanceledOrders.Name = "DisplayCanceledOrders";
+            this.DisplayCanceledOrders.Size = new System.Drawing.Size(211, 84);
+            this.DisplayCanceledOrders.TabIndex = 7;
+            this.DisplayCanceledOrders.Text = "キャンセルした注文一覧";
+            this.DisplayCanceledOrders.UseVisualStyleBackColor = false;
+            this.DisplayCanceledOrders.Click += new System.EventHandler(this.DisplayCanceledOrders_Click);
             // 
             // SupplyChainManager
             // 
@@ -155,7 +201,7 @@
             this.ClientSize = new System.Drawing.Size(1506, 757);
             this.Controls.Add(this.groupBox2);
             this.Name = "SupplyChainManager";
-            this.Text = "物量担当";
+            this.Text = "物流担当";
             this.Load += new System.EventHandler(this.SupplyChainManager_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
@@ -169,7 +215,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.注文内容BindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -184,6 +229,9 @@
         private OI21Database1DataSetTableAdapters.注文内容TableAdapter 注文内容TableAdapter;
         private System.Windows.Forms.Button CancelOrder;
         private System.Windows.Forms.Button ApproveOrder;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DisplayCanceledOrders;
+        private System.Windows.Forms.Button DisplayOrders;
+        private System.Windows.Forms.Button DisplaySentOrders;
+        private System.Windows.Forms.Button SendOrder;
     }
 }

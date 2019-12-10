@@ -39,7 +39,6 @@
             this.CancelOrder = new System.Windows.Forms.Button();
             this.AddToOrderButton = new System.Windows.Forms.Button();
             this.SubmitRestock = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.AddAllRequiredItems = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -168,15 +167,6 @@
             this.SubmitRestock.UseVisualStyleBackColor = true;
             this.SubmitRestock.Click += new System.EventHandler(this.SubmitRestock_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // AddAllRequiredItems
             // 
             this.AddAllRequiredItems.Location = new System.Drawing.Point(245, 79);
@@ -191,14 +181,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.ClientSize = new System.Drawing.Size(1506, 757);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Name = "AddStockForm";
             this.Text = "Add Stock";
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -206,7 +194,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -224,6 +211,5 @@
         private System.Windows.Forms.Button AddToOrderButton;
         private System.Windows.Forms.Button SubmitRestock;
         private System.Windows.Forms.Button AddAllRequiredItems;
-        private System.Windows.Forms.Button button1;
     }
 }

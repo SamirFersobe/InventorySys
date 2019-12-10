@@ -38,10 +38,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ClearOrder = new System.Windows.Forms.Button();
             this.SubmitButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -54,22 +56,23 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.CancelOrder);
             this.groupBox1.Controls.Add(this.AddToOrderButton);
-            this.groupBox1.Location = new System.Drawing.Point(23, 96);
+            this.groupBox1.Location = new System.Drawing.Point(26, 28);
             this.groupBox1.Size = new System.Drawing.Size(566, 264);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(615, 96);
-            this.groupBox3.Size = new System.Drawing.Size(855, 603);
+            this.groupBox3.Location = new System.Drawing.Point(609, 28);
+            this.groupBox3.Size = new System.Drawing.Size(855, 671);
+            this.groupBox3.Text = "商品一覧";
             // 
             // AddToOrderButton
             // 
-            this.AddToOrderButton.Location = new System.Drawing.Point(381, 63);
+            this.AddToOrderButton.Location = new System.Drawing.Point(391, 54);
             this.AddToOrderButton.Name = "AddToOrderButton";
             this.AddToOrderButton.Size = new System.Drawing.Size(126, 45);
             this.AddToOrderButton.TabIndex = 0;
-            this.AddToOrderButton.Text = "Add To Order";
+            this.AddToOrderButton.Text = "商品を追加";
             this.AddToOrderButton.UseVisualStyleBackColor = true;
             this.AddToOrderButton.Click += new System.EventHandler(this.AddToOrderButton_Click);
             // 
@@ -77,9 +80,9 @@
             // 
             this.CancelOrder.Location = new System.Drawing.Point(381, 179);
             this.CancelOrder.Name = "CancelOrder";
-            this.CancelOrder.Size = new System.Drawing.Size(126, 45);
+            this.CancelOrder.Size = new System.Drawing.Size(154, 61);
             this.CancelOrder.TabIndex = 1;
-            this.CancelOrder.Text = "Cancel";
+            this.CancelOrder.Text = "注文キャンセル";
             this.CancelOrder.UseVisualStyleBackColor = true;
             this.CancelOrder.Click += new System.EventHandler(this.CancelOrder_Click);
             // 
@@ -88,18 +91,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(46, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 17);
+            this.label1.Size = new System.Drawing.Size(42, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Quantity";
+            this.label1.Text = "数量";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(46, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.Size = new System.Drawing.Size(42, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Product";
+            this.label2.Text = "商品";
             // 
             // comboBox1
             // 
@@ -116,16 +119,17 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(849, 580);
+            this.dataGridView1.Size = new System.Drawing.Size(849, 648);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(23, 366);
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 18);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(566, 330);
+            this.dataGridView2.Size = new System.Drawing.Size(560, 380);
             this.dataGridView2.TabIndex = 12;
             // 
             // textBox1
@@ -137,39 +141,50 @@
             // 
             // ClearOrder
             // 
-            this.ClearOrder.Location = new System.Drawing.Point(381, 118);
+            this.ClearOrder.Location = new System.Drawing.Point(222, 179);
             this.ClearOrder.Name = "ClearOrder";
-            this.ClearOrder.Size = new System.Drawing.Size(126, 44);
+            this.ClearOrder.Size = new System.Drawing.Size(153, 61);
             this.ClearOrder.TabIndex = 6;
-            this.ClearOrder.Text = "Clear Items";
+            this.ClearOrder.Text = "注文クリア";
             this.ClearOrder.UseVisualStyleBackColor = true;
             this.ClearOrder.Click += new System.EventHandler(this.ClearOrder_Click);
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(104, 188);
+            this.SubmitButton.Location = new System.Drawing.Point(49, 179);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(188, 36);
+            this.SubmitButton.Size = new System.Drawing.Size(160, 61);
             this.SubmitButton.TabIndex = 7;
-            this.SubmitButton.Text = "Submit";
+            this.SubmitButton.Text = "注文確定";
             this.SubmitButton.UseVisualStyleBackColor = true;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Location = new System.Drawing.Point(26, 298);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(566, 401);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "注文一覧";
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.ClientSize = new System.Drawing.Size(1506, 769);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.groupBox2);
             this.Name = "OrderForm";
             this.Text = "注文画面";
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
-            this.Controls.SetChildIndex(this.dataGridView2, 0);
+            this.Controls.SetChildIndex(this.groupBox2, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +202,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button ClearOrder;
         private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

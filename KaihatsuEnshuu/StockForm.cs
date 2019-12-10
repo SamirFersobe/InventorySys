@@ -12,7 +12,7 @@ namespace KaihatsuEnshuu
     public partial class StockForm : template.Form1
     {
 
-        string sqlQueryStock = "select productID,sum(quantity) as Quantity from stock group by productid";
+        string sqlQueryStock = "select productID,shop_id,quantity as Quantity from stock ";
         string sqlQueryProducts = "select * from products";
         public StockForm()
         {
@@ -70,7 +70,7 @@ namespace KaihatsuEnshuu
         {
 
             //check if form closed and if then executes this code
-            MessageBox.Show("Hey panini");
+           
             try
             {
                 reloadDataGridView(sqlQueryStock, dataGridView1);

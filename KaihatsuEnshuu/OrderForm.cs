@@ -180,23 +180,30 @@ namespace KaihatsuEnshuu
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.Text;
 
-            con.Open();//opening connection
-            string currentItem = comboBox1.SelectedValue.ToString();
-            string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
-            cmd.CommandText = lastAddedId;
-            string orderString = cmd.ExecuteScalar().ToString();
+            DialogResult dialogResult = MessageBox.Show("注文確認しました？", "注文確定注意", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.Text;
 
-            //-1 Implies a YES and  0 is False
-            string cmdString = "update [order] set orderrequest = -1 where id = " + orderString;
-            cmd.CommandText = cmdString;
-            cmd.ExecuteNonQuery();
+                con.Open();//opening connection
+                string currentItem = comboBox1.SelectedValue.ToString();
+                string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
+                cmd.CommandText = lastAddedId;
+                string orderString = cmd.ExecuteScalar().ToString();
 
-            this.Close();
+                //-1 Implies a YES and  0 is False
+                string cmdString = "update [order] set orderrequest = -1 where id = " + orderString;
+                cmd.CommandText = cmdString;
+                cmd.ExecuteNonQuery();
+
+                this.Close();
+            }
+
+
         }
     }
 

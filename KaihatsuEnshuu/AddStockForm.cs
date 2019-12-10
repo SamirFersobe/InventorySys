@@ -11,20 +11,10 @@ namespace KaihatsuEnshuu
 {
     public partial class AddStockForm : template.Form1
     {
-        string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
         string sqlqueryRestocking;
         int restockingOrder;
         int shopIDGlobal;
         string sqlQueryProducts = "select * from products";
-
-        public AddStockForm(int shopid,int restockingId , int randomnumber)
-        {
-
-
-
-        }
-
-
 
 
         private void RequiredStockForAllOrders(List<MyData> stockItems)
@@ -150,6 +140,33 @@ namespace KaihatsuEnshuu
             reloadDataGridView(sqlqueryRestocking, dataGridView1);
         }
 
+        private int ProductandShopInStock(int productID,int shopID)
+        {
+            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandType = CommandType.Text;
+
+          string productIdString =  productID.ToString();
+          string  shopIdString = shopID.ToString();
+          string productandShopQuery = "select quantity from stock where productid = " + productIdString + " and shop_id = " + shopIdString;
+
+            cmd.CommandText = productandShopQuery;
+            object productShopExists = cmd.ExecuteScalar();
+
+            if(productShopExists == null)
+            {
+                //object doesnt exist
+                return -1;
+            }
+            return Convert.ToInt32(productShopExists);
+
+
+
+            
+        }
+  
         private void SubmitRestock_Click(object sender, EventArgs e)
         {
 
@@ -160,26 +177,58 @@ namespace KaihatsuEnshuu
 
             con.Open();//opening connection
 
-            string sqlQueryStockInsert = "insert into stock(productID,quantity,shop_id) select productID , quantity,shop_id  from RestockingDetails where restockingID =  " + restockingOrder.ToString();
-            
+            string sqlQuery = "select productID, sum(quantity) from RestockingDetails where restockingID =  " + restockingOrder.ToString() + " group by productid";
+            string sqlInsertQuery;
+            var items = new List<MyData>();
 
-            cmd.CommandText = sqlQueryStockInsert;
-
-            try
+            using (con)
             {
+                cmd.CommandText = sqlQuery;
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        var item = new MyData()
+                        {
+                            productId = Convert.ToInt32(dr[0]),
+                            productQuantity = Convert.ToInt32(dr[1])
+                        };
 
-                cmd.ExecuteNonQuery();
+                        items.Add(item);
+                    };
+                }
+
+
+                foreach (var item1 in items)
+                {
+                    if (ProductandShopInStock(item1.productId, shopIDGlobal) == -1)
+                    {
+                        //if value is -1 then do the insert stament because it doesnt exist
+                        sqlInsertQuery = "insert into stock(ProductID,Quantity,Shop_ID) values (@productID,@quantity,@shop_id)";
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = sqlInsertQuery;
+                        cmd.Parameters.AddWithValue("@productID", item1.productId);
+                        cmd.Parameters.AddWithValue("@quantity", item1.productQuantity);
+                        cmd.Parameters.AddWithValue("@shop_id", shopIDGlobal);
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                    else//if it exists then it is a value between 0 + 2^32 
+                    {
+                        int quantity = item1.productQuantity + ProductandShopInStock(item1.productId, shopIDGlobal);
+                        cmd.Parameters.Clear();
+                        sqlInsertQuery = "update stock set quantity = " + quantity.ToString() + "  where productid= " + item1.productId.ToString() + " and shop_id = " + shopIDGlobal.ToString();
+                        cmd.CommandText = sqlInsertQuery;
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+                }
+
+                this.Close();
+
 
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                
-            }
-
-            this.Close();
-
-           
         }
 
         private void AddAllRequiredItems_Click(object sender, EventArgs e)
