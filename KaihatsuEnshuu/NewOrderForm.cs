@@ -40,25 +40,23 @@ namespace KaihatsuEnshuu
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO [order](orderDate,orderEmpno,orderCustomerId) values(date(),@orderEmpno,@orderCustomerId)";
+            cmd.CommandText = "INSERT INTO [order](orderDate,orderEmpno,orderCustomerId) values(date(),@orderEmpno,@orderCustomerId) ";
             cmd.Parameters.AddWithValue("@orderEmpno", comboBox1.SelectedValue);
             cmd.Parameters.AddWithValue("@orderCustomerId", comboBox2.SelectedValue); 
             con.Open();
+            //select @@identity
             cmd.ExecuteNonQuery();
-            MessageBox.Show("An order has been started");
+            cmd.CommandText = "select @@identity";
+  
 
+            var lastOrderId = cmd.ExecuteScalar();
 
-            string lastAddedId = "select id from [order]  order by orderdate desc ";
-            cmd.CommandText = lastAddedId;
+     
             
-            var orderId = cmd.ExecuteScalar();
-
-            MessageBox.Show(orderId.ToString());
+            MessageBox.Show("注文開始しました");
 
 
-
-            MessageBox.Show("New order by " + comboBox1.SelectedIndex.ToString() + " for the " + comboBox2.SelectedText.ToString());
-            OrderForm order = new OrderForm(employeeid,customerid,orderId.ToString());
+            OrderForm order = new OrderForm(employeeid,customerid,lastOrderId.ToString());
             order.Show();
             
         }

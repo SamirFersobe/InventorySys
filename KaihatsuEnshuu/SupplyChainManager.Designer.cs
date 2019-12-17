@@ -130,9 +130,9 @@
             // 
             this.ApproveOrder.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ApproveOrder.ForeColor = System.Drawing.Color.Black;
-            this.ApproveOrder.Location = new System.Drawing.Point(440, 99);
+            this.ApproveOrder.Location = new System.Drawing.Point(397, 23);
             this.ApproveOrder.Name = "ApproveOrder";
-            this.ApproveOrder.Size = new System.Drawing.Size(161, 57);
+            this.ApproveOrder.Size = new System.Drawing.Size(204, 83);
             this.ApproveOrder.TabIndex = 0;
             this.ApproveOrder.Text = "注文確認";
             this.ApproveOrder.UseVisualStyleBackColor = false;
@@ -141,23 +141,25 @@
             // CancelOrder
             // 
             this.CancelOrder.ForeColor = System.Drawing.Color.Black;
-            this.CancelOrder.Location = new System.Drawing.Point(440, 162);
+            this.CancelOrder.Location = new System.Drawing.Point(397, 112);
             this.CancelOrder.Name = "CancelOrder";
-            this.CancelOrder.Size = new System.Drawing.Size(161, 52);
+            this.CancelOrder.Size = new System.Drawing.Size(204, 88);
             this.CancelOrder.TabIndex = 3;
             this.CancelOrder.Text = "注文キャンセル";
             this.CancelOrder.UseVisualStyleBackColor = true;
+            this.CancelOrder.Click += new System.EventHandler(this.CancelOrder_Click);
             // 
             // SendOrder
             // 
             this.SendOrder.BackColor = System.Drawing.SystemColors.ControlLight;
             this.SendOrder.ForeColor = System.Drawing.Color.Black;
-            this.SendOrder.Location = new System.Drawing.Point(440, 220);
+            this.SendOrder.Location = new System.Drawing.Point(397, 206);
             this.SendOrder.Name = "SendOrder";
-            this.SendOrder.Size = new System.Drawing.Size(161, 56);
+            this.SendOrder.Size = new System.Drawing.Size(204, 84);
             this.SendOrder.TabIndex = 4;
             this.SendOrder.Text = "注文発送";
             this.SendOrder.UseVisualStyleBackColor = false;
+            this.SendOrder.Click += new System.EventHandler(this.SendOrder_Click);
             // 
             // DisplaySentOrders
             // 

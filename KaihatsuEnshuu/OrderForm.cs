@@ -11,9 +11,8 @@ namespace KaihatsuEnshuu
 {
     public partial class OrderForm : template.Form1
     {
-        string currentOrderString;
+        string currentOrderString ;
 
-        string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
         public OrderForm(string customerID , string employeeID, string orderId)
         {
 
@@ -23,7 +22,7 @@ namespace KaihatsuEnshuu
             try
             {
               
-                string sql1 = "SELECT pBrand,pName,Pprice FROM products";
+                string sql1 = "SELECT pBrand as ブランド ,pName as 商品名,Pprice as 値段 FROM products order by 1";
                 reloadDataGridView(sql1, dataGridView1);
 
             }
@@ -35,9 +34,9 @@ namespace KaihatsuEnshuu
             try
             {
                 
-                currentOrderString = "SELECT  * FROM orderDetails where orderId = " + orderId;
+                currentOrderString = "SELECT   p.pbrand as ブランド,p.pname as 名前, od.pcurrentprice as 値段 ,sum(od.quantity) as 数  FROM orderDetails od inner join products p on (p.pid =  od.pid) where orderId = " + orderId +" group by p.pbrand,p.pname,od.pcurrentprice,p.pid ";
                 reloadDataGridView(currentOrderString, dataGridView2);
-               // MessageBox.Show("Values loaded ...!!!");
+                MessageBox.Show("Values loaded ...!!!");
 
             }
             catch (Exception ex)
@@ -101,8 +100,8 @@ namespace KaihatsuEnshuu
             try
             {
  
-                string sql3 = "SELECT  * FROM orderDetails where orderId = " + orderString;
-                reloadDataGridView(sql3, dataGridView2);
+               
+                reloadDataGridView(currentOrderString, dataGridView2);
            
 
             }
@@ -116,6 +115,7 @@ namespace KaihatsuEnshuu
         private void CancelOrder_Click(object sender, EventArgs e)
         {
             DeleteLastOrder();
+            this.Close();
 
         }
 
@@ -166,7 +166,9 @@ namespace KaihatsuEnshuu
             cmd.CommandText = cmdString;
             cmd.ExecuteNonQuery();
 
-            this.Close();
+
+
+            
 
             
         }
@@ -184,26 +186,45 @@ namespace KaihatsuEnshuu
             DialogResult dialogResult = MessageBox.Show("注文確認しました？", "注文確定注意", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
-                OleDbCommand cmd = new OleDbCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.Text;
-
-                con.Open();//opening connection
-                string currentItem = comboBox1.SelectedValue.ToString();
-                string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
-                cmd.CommandText = lastAddedId;
-                string orderString = cmd.ExecuteScalar().ToString();
-
-                //-1 Implies a YES and  0 is False
-                string cmdString = "update [order] set orderrequest = -1 where id = " + orderString;
-                cmd.CommandText = cmdString;
-                cmd.ExecuteNonQuery();
+                SubmitOrder();
 
                 this.Close();
             }
 
 
+        }
+
+        private void SubmitOrder()
+        {
+            OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+
+            con.Open();//opening connection
+            string currentItem = comboBox1.SelectedValue.ToString();
+            string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
+            cmd.CommandText = lastAddedId;
+            string orderString = cmd.ExecuteScalar().ToString();
+
+            //-1 Implies a YES and  0 is False
+            string cmdString = "update [order] set orderrequest = -1 where id = " + orderString;
+            cmd.CommandText = cmdString;
+            cmd.ExecuteNonQuery();
+        }
+
+        private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("この注文を確定しますか？", "注文確認", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                SubmitOrder();
+               
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                DeleteLastOrder();
+            }
         }
     }
 

@@ -15,6 +15,7 @@ namespace KaihatsuEnshuu
         public LoginForm()
         {
             InitializeComponent();
+            passwordTextBox.PasswordChar = '●';
         }
 
         private void loginButton_Click(object sender, EventArgs e)

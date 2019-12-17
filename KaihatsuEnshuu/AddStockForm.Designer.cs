@@ -58,23 +58,23 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.CancelOrder);
             this.groupBox1.Controls.Add(this.AddToOrderButton);
-            this.groupBox1.Size = new System.Drawing.Size(447, 243);
+            this.groupBox1.Size = new System.Drawing.Size(681, 243);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Location = new System.Drawing.Point(492, 116);
-            this.groupBox3.Size = new System.Drawing.Size(1002, 603);
+            this.groupBox3.Location = new System.Drawing.Point(722, 113);
+            this.groupBox3.Size = new System.Drawing.Size(758, 603);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(15, 365);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(447, 354);
+            this.groupBox2.Size = new System.Drawing.Size(684, 354);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Restocking Order";
             // 
             // dataGridView1
             // 
@@ -83,7 +83,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(441, 333);
+            this.dataGridView1.Size = new System.Drawing.Size(678, 333);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -93,12 +93,12 @@
             this.dataGridView2.Location = new System.Drawing.Point(3, 20);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(996, 580);
+            this.dataGridView2.Size = new System.Drawing.Size(752, 580);
             this.dataGridView2.TabIndex = 0;
             // 
             // ClearOrder
             // 
-            this.ClearOrder.Location = new System.Drawing.Point(245, 124);
+            this.ClearOrder.Location = new System.Drawing.Point(385, 174);
             this.ClearOrder.Name = "ClearOrder";
             this.ClearOrder.Size = new System.Drawing.Size(126, 44);
             this.ClearOrder.TabIndex = 13;
@@ -140,7 +140,7 @@
             // 
             // CancelOrder
             // 
-            this.CancelOrder.Location = new System.Drawing.Point(245, 174);
+            this.CancelOrder.Location = new System.Drawing.Point(517, 174);
             this.CancelOrder.Name = "CancelOrder";
             this.CancelOrder.Size = new System.Drawing.Size(126, 45);
             this.CancelOrder.TabIndex = 8;
@@ -149,7 +149,7 @@
             // 
             // AddToOrderButton
             // 
-            this.AddToOrderButton.Location = new System.Drawing.Point(63, 124);
+            this.AddToOrderButton.Location = new System.Drawing.Point(230, 173);
             this.AddToOrderButton.Name = "AddToOrderButton";
             this.AddToOrderButton.Size = new System.Drawing.Size(126, 45);
             this.AddToOrderButton.TabIndex = 7;
@@ -159,9 +159,9 @@
             // 
             // SubmitRestock
             // 
-            this.SubmitRestock.Location = new System.Drawing.Point(63, 175);
+            this.SubmitRestock.Location = new System.Drawing.Point(486, 37);
             this.SubmitRestock.Name = "SubmitRestock";
-            this.SubmitRestock.Size = new System.Drawing.Size(126, 44);
+            this.SubmitRestock.Size = new System.Drawing.Size(157, 79);
             this.SubmitRestock.TabIndex = 14;
             this.SubmitRestock.Text = "Submit";
             this.SubmitRestock.UseVisualStyleBackColor = true;
@@ -169,11 +169,11 @@
             // 
             // AddAllRequiredItems
             // 
-            this.AddAllRequiredItems.Location = new System.Drawing.Point(245, 79);
+            this.AddAllRequiredItems.Location = new System.Drawing.Point(52, 173);
             this.AddAllRequiredItems.Name = "AddAllRequiredItems";
-            this.AddAllRequiredItems.Size = new System.Drawing.Size(130, 23);
+            this.AddAllRequiredItems.Size = new System.Drawing.Size(150, 42);
             this.AddAllRequiredItems.TabIndex = 15;
-            this.AddAllRequiredItems.Text = "button2";
+            this.AddAllRequiredItems.Text = "Add All Required items";
             this.AddAllRequiredItems.UseVisualStyleBackColor = true;
             this.AddAllRequiredItems.Click += new System.EventHandler(this.AddAllRequiredItems_Click);
             // 

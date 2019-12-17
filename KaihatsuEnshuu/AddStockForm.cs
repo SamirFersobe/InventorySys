@@ -14,7 +14,7 @@ namespace KaihatsuEnshuu
         string sqlqueryRestocking;
         int restockingOrder;
         int shopIDGlobal;
-        string sqlQueryProducts = "select * from products";
+        string sqlQueryProducts = "select pname as 商品名,pbrand as ブランド, restockingPRice as 仕入価格 from products";
 
 
         private void RequiredStockForAllOrders(List<MyData> stockItems)
@@ -57,7 +57,7 @@ namespace KaihatsuEnshuu
                         };
                         if (item2.productQuantity != 0)
                         {
-                            MessageBox.Show(" I will add  " + item2.productId.ToString() + "  with  " + item2.productQuantity.ToString());
+                            
 
                             stockItems.Add(item2);
                         }
@@ -98,7 +98,7 @@ namespace KaihatsuEnshuu
             InitializeComponent();
             shopIDGlobal = shopid;
 
-            sqlqueryRestocking = "select * from restockingDetails where restockingid = " + restockingId.ToString();
+            sqlqueryRestocking = "select p.pbrand as ブランド,p.pname as 商品名,sum(r.quantity) as 数, avg(p.restockingPrice) as 価格 ,sum(p.restockingPrice) as 合計 from restockingDetails r inner join products p on (p.pid = r.productID) where restockingid = " + restockingId.ToString() +" group by p.pbrand,p.pid ,p.pname";
             restockingOrder = restockingId;
 
 
@@ -251,14 +251,14 @@ namespace KaihatsuEnshuu
             {
                 try
                 {
-                    MessageBox.Show(stockItems[i].productId.ToString());
+                   
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@restockingID", restockingOrder);
                     cmd.Parameters.AddWithValue("@productID", stockItems[i].productId);
                     cmd.Parameters.AddWithValue("@quantity", stockItems[i].productQuantity);
                     cmd.Parameters.AddWithValue("@shop_id", shopIDGlobal);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show(" Item added to list");
+                    
 
 
                 }
@@ -279,8 +279,8 @@ namespace KaihatsuEnshuu
 
             MessageBox.Show("The required items have been added to the order");
 
-            reloadDataGridView(sqlqueryRestocking, dataGridView2);
-            reloadDataGridView(sqlQueryProducts, dataGridView1);
+            reloadDataGridView(sqlqueryRestocking, dataGridView1);
+            reloadDataGridView(sqlQueryProducts, dataGridView2);
         }
     }
 }
