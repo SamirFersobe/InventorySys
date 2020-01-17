@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
 
 namespace template
 {
     public partial class Form1 : Form
     {
+       // string directory2 = System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
+       // string databaseName = "OI21Database1.accdb";
+       // string fullpath = Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString(),"OI21Database1.accdb");
 
-     public string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+        public string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+ Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString(), "OI21Database1.accdb"); 
         public Form1()
         {
             InitializeComponent();
@@ -47,12 +51,19 @@ namespace template
 
         public void reloadDataGridView(string sql, DataGridView dataGridView1)
         {
-            DataTable dt = new DataTable();
-            OleDbConnection conReload = new OleDbConnection(DatabaseConnectionString);
-            OleDbDataAdapter da = new OleDbDataAdapter(sql, conReload);
-            dt.Clear();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            try
+            {
+                DataTable dt = new DataTable();
+                OleDbConnection conReload = new OleDbConnection(DatabaseConnectionString);
+                OleDbDataAdapter da = new OleDbDataAdapter(sql, conReload);
+                dt.Clear();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch(Exception ex )
+            {
+                MessageBox.Show(ex.Message);
+            }
            
         }
     }

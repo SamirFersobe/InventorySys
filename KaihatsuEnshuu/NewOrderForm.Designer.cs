@@ -131,6 +131,7 @@
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.newOrderButton);
             this.Name = "NewOrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注文開始";
             this.Load += new System.EventHandler(this.NewOrderForm_Load);
             this.ResumeLayout(false);

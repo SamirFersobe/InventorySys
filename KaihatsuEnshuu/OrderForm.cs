@@ -12,18 +12,23 @@ namespace KaihatsuEnshuu
     public partial class OrderForm : template.Form1
     {
         string currentOrderString ;
+        string currentOrderId;
+        string currentProductID = "";
+        Boolean sentorder = true;
+        string genericProductQuery = "SELECT p.pid,b.BrandName as ブランド,c.categoryName as 種類 ,p.pName as 商品名, format(p.Pprice,'currency') as 値段 FROM (products p inner join brands b on (b.BrandId = p.brand))  inner join categories c on (c.CategoryId = p.categoryId) ";
 
         public OrderForm(string customerID , string employeeID, string orderId)
         {
-
+            currentOrderId = orderId;
             
             InitializeComponent();
 
             try
             {
               
-                string sql1 = "SELECT pBrand as ブランド ,pName as 商品名,Pprice as 値段 FROM products order by 1";
-                reloadDataGridView(sql1, dataGridView1);
+               
+                reloadDataGridView(genericProductQuery, dataGridView1);
+                this.dataGridView1.Columns["pid"].Visible = false;
 
             }
             catch (Exception ex)
@@ -34,9 +39,9 @@ namespace KaihatsuEnshuu
             try
             {
                 
-                currentOrderString = "SELECT   p.pbrand as ブランド,p.pname as 名前, od.pcurrentprice as 値段 ,sum(od.quantity) as 数  FROM orderDetails od inner join products p on (p.pid =  od.pid) where orderId = " + orderId +" group by p.pbrand,p.pname,od.pcurrentprice,p.pid ";
+                currentOrderString = "SELECT b.BrandName as ブランド, p.pName as 商品名,format(avg(p.Pprice),'currency') as 値段 ,sum(od.quantity) as 枚数 ,format(avg(p.Pprice) * sum(od.quantity),'currency') as 合計 FROM ((products p inner join brands b on (b.BrandId = p.brand))  inner join categories c on (c.CategoryId = p.categoryId)) inner join orderDetails od on (od.pid = p.pid) where od.orderId = "+ currentOrderId + "  group by od.pid ,b.brandName, p.pName order by 1";
                 reloadDataGridView(currentOrderString, dataGridView2);
-                MessageBox.Show("Values loaded ...!!!");
+               
 
             }
             catch (Exception ex)
@@ -47,29 +52,36 @@ namespace KaihatsuEnshuu
             // get the values for 
     
 
-            FillComboBox("pName", "pId", comboBox1, "products");
+            FillComboBox("CategoryName", "CategoryId",CategoryComboBoxFilter , "Categories");
+            FillComboBox("BrandName", "BrandID", BrandComboBoxFilter, "Brands");
 
 
 
         }
 
+        private Boolean productSelectedNotNull(string pid)
+        {
+            if (pid != "")
+                return true;
+            else
+                return false;
+        }
+
         private void AddToOrderButton_Click(object sender, EventArgs e)
         {
-
+            if (productSelectedNotNull(currentProductID)) { 
             OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.Text;
-
+            
             con.Open();//opening connection
-            string currentItem = comboBox1.SelectedValue.ToString();
-            string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
-            cmd.CommandText = lastAddedId;
-            string orderString = cmd.ExecuteScalar().ToString();
-            lastAddedId = "select orderCustomerId from [order]  order by orderdate desc ";
-            cmd.CommandText = lastAddedId;
+            string currentItem = ProductName.Text.ToString();
+            string sql = " select distinct ordercustomerId from [order] where Id = " + currentOrderId;
+            cmd.CommandText = sql;
             string customerString = cmd.ExecuteScalar().ToString();
-            string priceString = "select pprice from products where pid = " + comboBox1.SelectedValue.ToString();
+
+            string priceString = "select pprice from products where pid = " + currentProductID;
             cmd.CommandText = priceString;
             int price = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -82,24 +94,28 @@ namespace KaihatsuEnshuu
             {
 
 
-                cmd.Parameters.AddWithValue("@orderId", orderString);
+                cmd.Parameters.AddWithValue("@orderId", currentOrderId);
                 cmd.Parameters.AddWithValue("@customerId", customerString);
-                cmd.Parameters.AddWithValue("@pId", comboBox1.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("@pId", currentProductID);
                 cmd.Parameters.AddWithValue("@quantity", textBox1.Text.ToString());
                 cmd.Parameters.AddWithValue("@pCurrentPrice", price);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show(" Item added to list");
+                MessageBox.Show("商品追加しました。");
 
 
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("数字だけを入力してください。");
             }
 
             try
             {
- 
+                 BrandName.Clear();
+                ProductName.Clear();
+                currentProductID = "";
+                textBox1.Clear();
+                
                
                 reloadDataGridView(currentOrderString, dataGridView2);
            
@@ -109,12 +125,17 @@ namespace KaihatsuEnshuu
             {
                 MessageBox.Show(ex.Message + " 3");
             }
-            
+            }
+            else
+            {
+                MessageBox.Show("商品を選んでください");
+            }
         }
 
         private void CancelOrder_Click(object sender, EventArgs e)
         {
             DeleteLastOrder();
+            sentorder = false;
             this.Close();
 
         }
@@ -158,7 +179,7 @@ namespace KaihatsuEnshuu
             cmd.CommandType = CommandType.Text;
 
             con.Open();//opening connection
-            string currentItem = comboBox1.SelectedValue.ToString();
+            string currentItem = ProductName.Text.ToString();
             string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
             cmd.CommandText = lastAddedId;
             string orderString = cmd.ExecuteScalar().ToString();
@@ -187,7 +208,7 @@ namespace KaihatsuEnshuu
             if (dialogResult == DialogResult.Yes)
             {
                 SubmitOrder();
-
+                sentorder = false;
                 this.Close();
             }
 
@@ -202,7 +223,7 @@ namespace KaihatsuEnshuu
             cmd.CommandType = CommandType.Text;
 
             con.Open();//opening connection
-            string currentItem = comboBox1.SelectedValue.ToString();
+            string currentItem = ProductName.Text.ToString();
             string lastAddedId = "select id from [order]  order by orderdate desc ";  //getting values
             cmd.CommandText = lastAddedId;
             string orderString = cmd.ExecuteScalar().ToString();
@@ -215,16 +236,88 @@ namespace KaihatsuEnshuu
 
         private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("この注文を確定しますか？", "注文確認", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (sentorder)
             {
-                SubmitOrder();
-               
+                DialogResult dialogResult = MessageBox.Show("この注文を確定しますか？", "注文確認", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SubmitOrder();
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    DeleteLastOrder();
+                }
             }
-            else if (dialogResult == DialogResult.No)
+        }
+
+        private void ShowAllProducts_Click(object sender, EventArgs e)
+        {
+            try
             {
-                DeleteLastOrder();
+
+                string sql1 = "SELECT p.pid, b.BrandName as ブランド,c.categoryName as 種類,p.pName as 商品名,p.Pprice as 値段 FROM (products p inner join brands b on (b.BrandId = p.brand))  inner join categories c on (c.CategoryId = p.categoryId) order by 1";
+                reloadDataGridView(sql1, dataGridView1);
+
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 1");
+            }
+        }
+
+
+
+
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string pid = "";
+            if (e.RowIndex == -1) return; //check if row index is not 
+            if (dataGridView1.CurrentCell != null && dataGridView1.CurrentCell.Value != null)
+                pid = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+            currentProductID = pid;
+
+            ProductName.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            BrandName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            
+     
+        }
+
+        private void filterButton_Click_1(object sender, EventArgs e)
+        {
+            string currentBrand = BrandComboBoxFilter.SelectedValue.ToString();
+            
+            string currentCategory = CategoryComboBoxFilter.SelectedValue.ToString();
+
+            string sqlFilterQuery = genericProductQuery;
+            Boolean sentenceStartedFlag = false;
+
+            if (brandFilterCheckBox.Checked)
+            {
+                sqlFilterQuery = sqlFilterQuery + " where p.brand = " + currentBrand;
+                sentenceStartedFlag = true;
+            }
+
+            if (categoryFilterCheckBox.Checked)
+            {
+                if (sentenceStartedFlag)
+                {
+                    sqlFilterQuery = sqlFilterQuery + " and p.categoryId = " + currentCategory;
+
+                }
+                else
+                {
+                    sqlFilterQuery = sqlFilterQuery + " where p.categoryId = " + currentCategory;
+                    sentenceStartedFlag = true;
+                }
+
+            }
+
+
+            reloadDataGridView(sqlFilterQuery, dataGridView1);
         }
     }
 

@@ -40,7 +40,6 @@
             this.employeeName = new System.Windows.Forms.TextBox();
             this.hiredate = new System.Windows.Forms.DateTimePicker();
             this.addEmployee = new System.Windows.Forms.Button();
-            this.MakeSupplyManager = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -52,7 +51,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.MakeSupplyManager);
             this.groupBox1.Controls.Add(this.addEmployee);
             this.groupBox1.Controls.Add(this.hiredate);
             this.groupBox1.Controls.Add(this.employeeName);
@@ -141,15 +139,6 @@
             this.addEmployee.UseVisualStyleBackColor = true;
             this.addEmployee.Click += new System.EventHandler(this.addEmployee_Click);
             // 
-            // MakeSupplyManager
-            // 
-            this.MakeSupplyManager.Location = new System.Drawing.Point(79, 228);
-            this.MakeSupplyManager.Name = "MakeSupplyManager";
-            this.MakeSupplyManager.Size = new System.Drawing.Size(191, 43);
-            this.MakeSupplyManager.TabIndex = 12;
-            this.MakeSupplyManager.Text = "Make Supply Manager";
-            this.MakeSupplyManager.UseVisualStyleBackColor = true;
-            // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -157,6 +146,8 @@
             this.Name = "AddEmployeeForm";
             this.Text = "社員";
             this.Load += new System.EventHandler(this.AddEmployeeForm_Load);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.groupBox3, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -166,7 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.oI21Database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.社員ファイルBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
 		}
 
@@ -183,6 +173,5 @@
         private System.Windows.Forms.BindingSource 社員ファイルBindingSource1;
         private System.Windows.Forms.DateTimePicker hiredate;
         private System.Windows.Forms.Button addEmployee;
-        private System.Windows.Forms.Button MakeSupplyManager;
     }
 }

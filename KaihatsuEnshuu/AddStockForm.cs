@@ -6,20 +6,22 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Threading;
 
 namespace KaihatsuEnshuu
 {
     public partial class AddStockForm : template.Form1
     {
+        string currentProductId;
         string sqlqueryRestocking;
         int restockingOrder;
         int shopIDGlobal;
-        string sqlQueryProducts = "select pname as 商品名,pbrand as ブランド, restockingPRice as 仕入価格 from products";
+        string sqlQueryProducts = "SELECT p.pid as productId,b.BrandName as ブランド,c.categoryName as 種類 ,p.pName as 商品名,p.restockingPrice as 入荷価格 FROM (products p inner join brands b on (b.BrandId = p.brand))  inner join categories c on (c.CategoryId = p.categoryId) ";
 
 
         private void RequiredStockForAllOrders(List<MyData> stockItems)
         {
-            string orderDetailsQuery = " select pid, sum(quantity) from orderDetails group by pid";
+            string orderDetailsQuery = " select od.pid, sum(od.quantity) from orderDetails od inner join [order] o on(od.orderId = o.Id)  where o.orderRequest = -1 and o.orderApproved = 0 and  o.orderCanceled = 0 group by od.pid";
 
 
             OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
@@ -98,17 +100,23 @@ namespace KaihatsuEnshuu
             InitializeComponent();
             shopIDGlobal = shopid;
 
-            sqlqueryRestocking = "select p.pbrand as ブランド,p.pname as 商品名,sum(r.quantity) as 数, avg(p.restockingPrice) as 価格 ,sum(p.restockingPrice) as 合計 from restockingDetails r inner join products p on (p.pid = r.productID) where restockingid = " + restockingId.ToString() +" group by p.pbrand,p.pid ,p.pname";
+            //sqlqueryRestocking = "select p.brand as ブランド,p.pname as 商品名,sum(r.quantity) as 数, p.restockingPrice as 価格  from restockingDetails r inner join products p on (p.pid = r.productID) where restockingid = " + restockingId.ToString() +" group by p.brand,p.pid ,p.pname";
+            sqlqueryRestocking = "SELECT b.BrandName as ブランド, p.pName as 商品名,format(avg(p.restockingprice),'currency') as 入荷価格 ,sum(r.quantity) as 枚数, format(avg(p.restockingprice) * sum(r.quantity),'currency') as 合計  FROM ((products p inner join brands b on (b.BrandId = p.brand))  inner join categories c on (c.CategoryId = p.categoryId)) inner join restockingDetails r on (r.productid = p.pid) where r.restockingId = " + restockingId.ToString() + "  group by r.productid ,b.brandName, p.pName ";
             restockingOrder = restockingId;
 
-
+            FillComboBox("CategoryName", "CategoryId", categoryComboBox, "Categories");
+            FillComboBox("BrandName", "BrandID", brandComboBox, "Brands");
             reloadDataGridView(sqlqueryRestocking, dataGridView1);
             reloadDataGridView(sqlQueryProducts, dataGridView2);
-            FillComboBox("pName", "pId", comboBox1, "products");
+            this.dataGridView2.Columns["productId"].Visible = false;
+
+
+
         }
 
         private void AddToOrderButton_Click(object sender, EventArgs e)
         {
+            if(currentProductId != null) { 
             OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = con;
@@ -123,21 +131,32 @@ namespace KaihatsuEnshuu
             {
 
                 cmd.Parameters.AddWithValue("@restockingID", restockingOrder);
-                cmd.Parameters.AddWithValue("@productID", comboBox1.SelectedValue.ToString());
-                cmd.Parameters.AddWithValue("@quantity", textBox1.Text.ToString());
+                cmd.Parameters.AddWithValue("@productID", currentProductId);
+                cmd.Parameters.AddWithValue("@quantity", quantityTextBox.Text.ToString());
                 cmd.Parameters.AddWithValue("@shop_id", shopIDGlobal);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show(" Item added to list");
+                MessageBox.Show("商品追加しました。");
+               //     Thread.Sleep(200);
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("枚数を入力してください");
             }
 
-
+            
             reloadDataGridView(sqlqueryRestocking, dataGridView1);
+
+            quantityTextBox.Clear();
+            productName.Clear();
+            brandTextBox.Clear();
+            currentProductId = null;
+            }
+            else
+            {
+                MessageBox.Show("商品を選んでください");
+            }
         }
 
         private int ProductandShopInStock(int productID,int shopID)
@@ -281,6 +300,119 @@ namespace KaihatsuEnshuu
 
             reloadDataGridView(sqlqueryRestocking, dataGridView1);
             reloadDataGridView(sqlQueryProducts, dataGridView2);
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string pid = "";
+            if (e.RowIndex == -1) return; //check if row index is not 
+            if (dataGridView2.CurrentCell != null && dataGridView2.CurrentCell.Value != null)
+                pid = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+
+            currentProductId = pid;
+
+            productName.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+
+            brandTextBox.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+
+
+        }
+
+        private void Filter_Click(object sender, EventArgs e)
+        {
+            string currentBrand = brandComboBox.SelectedValue.ToString();
+            string currentCategory = categoryComboBox.SelectedValue.ToString();
+            
+            string sqlFilterQuery = sqlQueryProducts;
+            Boolean sentenceStartedFlag = false;
+
+            if (brandFilterCheckBox.Checked)
+            {
+                sqlFilterQuery = sqlFilterQuery + " where p.brand = " + currentBrand;
+                sentenceStartedFlag = true;
+            }
+
+            if (categoryFilterCheckBox.Checked)
+            {
+                if (sentenceStartedFlag)
+                {
+                    sqlFilterQuery = sqlFilterQuery + " and p.categoryId = " + currentCategory;
+
+                }
+                else
+                {
+                    sqlFilterQuery = sqlFilterQuery + " where p.categoryId = " + currentCategory;
+                    sentenceStartedFlag = true;
+                }
+
+            }
+
+
+            reloadDataGridView(sqlFilterQuery, dataGridView2);
+        }
+
+        private void ClearOrder_Click(object sender, EventArgs e)
+        {
+            Boolean done = false;
+            DialogResult dialogResult = MessageBox.Show("入荷をクリアしますか?", "クリア", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                string deleteAllSql = "delete * from restockingdetails where restockingId = " + restockingOrder.ToString();
+
+                cmd.CommandText = deleteAllSql;
+                cmd.ExecuteNonQuery();
+                done = true;
+                reloadDataGridView(sqlqueryRestocking, dataGridView1);
+                reloadDataGridView(sqlQueryProducts, dataGridView2);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+
+
+            if (done)
+            {
+                MessageBox.Show("クリアしました！");
+
+            }
+            reloadDataGridView(sqlqueryRestocking, dataGridView1);
+            reloadDataGridView(sqlQueryProducts, dataGridView2);
+
+
+        }
+
+        private void CancelOrder_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult dialogResult = MessageBox.Show("入荷をキャンセルますか?", "キャンセル", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                string deleteAllSql = "delete * from restockingdetails where restockingId = " + restockingOrder.ToString();
+
+                cmd.CommandText = deleteAllSql;
+                cmd.ExecuteNonQuery();
+
+                string deleterestockingOrder = "delete * from restocking where restockingID = " + restockingOrder.ToString();
+                cmd.CommandText = deleterestockingOrder;
+                cmd.ExecuteNonQuery();
+
+                this.Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
     }
 }

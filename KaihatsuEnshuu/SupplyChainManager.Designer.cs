@@ -67,6 +67,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(671, 21);
             this.groupBox3.Size = new System.Drawing.Size(823, 698);
             this.groupBox3.Text = "注文内容";
@@ -87,11 +88,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(15, 323);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(650, 393);
+            this.groupBox2.Size = new System.Drawing.Size(653, 393);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "注文一覧";
@@ -103,7 +104,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(644, 372);
+            this.dataGridView1.Size = new System.Drawing.Size(647, 372);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
