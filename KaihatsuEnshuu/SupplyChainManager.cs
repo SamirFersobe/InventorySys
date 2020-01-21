@@ -153,7 +153,7 @@ namespace KaihatsuEnshuu
         private void DecreaseParticularProductFromStock(int productID, int productQuantity)
         {
 
-            MessageBox.Show("decreasing " + productID.ToString() + " by " + productQuantity.ToString());
+           // MessageBox.Show("decreasing " + productID.ToString() + " by " + productQuantity.ToString());
             string sqlQueryToCheckAvailability = "select quantity,shop_ID from stock where productID = " + Convert.ToString(productID);
             OleDbConnection con = new OleDbConnection(DatabaseConnectionString);
             OleDbCommand cmd = new OleDbCommand();
@@ -198,7 +198,7 @@ namespace KaihatsuEnshuu
                 {
                     productQuantity = productQuantity - item.stockQuantity;
                     item.stockQuantity = 0;
-                    sqlQueryUpdateValues = "update stock set quantity = 0 where shop_id = " + item.stockShopID.ToString();
+                    sqlQueryUpdateValues = "update stock set quantity = 0 where shop_id = " + item.stockShopID.ToString() + " and productID = " + productID.ToString();
                     cmmd.CommandText = sqlQueryUpdateValues;
                    // MessageBox.Show(item.stockQuantity.ToString() + " -   " + productQuantity.ToString() + " and productID = " + productID.ToString());
                  //   MessageBox.Show("decreasing");

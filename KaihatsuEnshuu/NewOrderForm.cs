@@ -39,9 +39,9 @@ namespace KaihatsuEnshuu
 
 
 
-             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+           //  string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
 
-          //  string str = DatabaseConnectionString;
+            string str = DatabaseConnectionString;
 
             OleDbConnection con = new OleDbConnection(str);
             OleDbCommand cmd = new OleDbCommand();
@@ -78,9 +78,9 @@ namespace KaihatsuEnshuu
         {
             
             DataTable dt = new DataTable();
-             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+            // string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
 
-           // string str = DatabaseConnectionString;
+            string str = DatabaseConnectionString;
             OleDbConnection con = new OleDbConnection(str);
             string sql1 = "SELECT "+ displayMember +  "  , "+valueMember+ " FROM "+ table ;
             con.Open();
