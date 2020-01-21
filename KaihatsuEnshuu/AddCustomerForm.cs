@@ -30,7 +30,7 @@ namespace KaihatsuEnshuu
         {
 
             string name = CustomerName.Text.ToString();
-            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+            string str = DatabaseConnectionString;
             OleDbConnection con = new OleDbConnection(str);
             con.Open();
             OleDbCommand cmmd = new OleDbCommand("INSERT INTO customers(customerName) Values(@Name)", con);

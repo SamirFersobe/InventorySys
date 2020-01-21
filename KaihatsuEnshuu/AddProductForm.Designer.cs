@@ -44,8 +44,12 @@
             this.サイズTableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.サイズTableAdapter();
             this.カテゴリーTableAdapter = new KaihatsuEnshuu.OI21Database1DataSetTableAdapters.カテゴリーTableAdapter();
             this.addProductButton = new System.Windows.Forms.Button();
-            this.brandTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.brandComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.restockingPrice = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,8 +62,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.categoryComboBox);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.restockingPrice);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.brandComboBox);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.brandTextBox);
             this.groupBox1.Controls.Add(this.addProductButton);
             this.groupBox1.Controls.Add(this.productPrice);
             this.groupBox1.Controls.Add(this.ProductNameMaskedTextBox);
@@ -97,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 142);
+            this.label2.Location = new System.Drawing.Point(37, 182);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 1;
@@ -126,7 +134,7 @@
             // 
             // productPrice
             // 
-            this.productPrice.Location = new System.Drawing.Point(139, 139);
+            this.productPrice.Location = new System.Drawing.Point(139, 179);
             this.productPrice.Name = "productPrice";
             this.productPrice.Size = new System.Drawing.Size(198, 24);
             this.productPrice.TabIndex = 7;
@@ -155,20 +163,13 @@
             // 
             // addProductButton
             // 
-            this.addProductButton.Location = new System.Drawing.Point(39, 229);
+            this.addProductButton.Location = new System.Drawing.Point(97, 279);
             this.addProductButton.Name = "addProductButton";
             this.addProductButton.Size = new System.Drawing.Size(116, 59);
             this.addProductButton.TabIndex = 12;
             this.addProductButton.Text = "追加";
             this.addProductButton.UseVisualStyleBackColor = true;
             this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
-            // 
-            // brandTextBox
-            // 
-            this.brandTextBox.Location = new System.Drawing.Point(139, 80);
-            this.brandTextBox.Name = "brandTextBox";
-            this.brandTextBox.Size = new System.Drawing.Size(198, 24);
-            this.brandTextBox.TabIndex = 14;
             // 
             // label1
             // 
@@ -179,13 +180,56 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "商品ブランド";
             // 
+            // brandComboBox
+            // 
+            this.brandComboBox.FormattingEnabled = true;
+            this.brandComboBox.Location = new System.Drawing.Point(139, 80);
+            this.brandComboBox.Name = "brandComboBox";
+            this.brandComboBox.Size = new System.Drawing.Size(198, 25);
+            this.brandComboBox.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 232);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "入荷価格";
+            // 
+            // restockingPrice
+            // 
+            this.restockingPrice.Location = new System.Drawing.Point(139, 229);
+            this.restockingPrice.Name = "restockingPrice";
+            this.restockingPrice.Size = new System.Drawing.Size(198, 24);
+            this.restockingPrice.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 137);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 17);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "商品ブランド";
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(139, 134);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(198, 25);
+            this.categoryComboBox.TabIndex = 19;
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.ClientSize = new System.Drawing.Size(1506, 757);
             this.Name = "AddProductForm";
-            this.Text = "AddProductForm";
+            this.Text = "商品管理";
             this.Load += new System.EventHandler(this.AddProductForm_Load);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.groupBox3, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -196,7 +240,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.色BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.サイズBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,7 +260,11 @@
         private System.Windows.Forms.BindingSource カテゴリーBindingSource;
         private OI21Database1DataSetTableAdapters.カテゴリーTableAdapter カテゴリーTableAdapter;
         private System.Windows.Forms.Button addProductButton;
-        private System.Windows.Forms.MaskedTextBox brandTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox brandComboBox;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MaskedTextBox restockingPrice;
+        private System.Windows.Forms.Label label4;
     }
 }

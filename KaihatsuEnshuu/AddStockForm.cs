@@ -296,7 +296,7 @@ namespace KaihatsuEnshuu
 
 
 
-            MessageBox.Show("The required items have been added to the order");
+            MessageBox.Show("必要な商品を追加しました！");
 
             reloadDataGridView(sqlqueryRestocking, dataGridView1);
             reloadDataGridView(sqlQueryProducts, dataGridView2);

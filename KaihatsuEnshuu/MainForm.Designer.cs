@@ -110,7 +110,8 @@
             this.Controls.Add(this.AddProductButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainForm";
-            this.Text = "Administrator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "メイン画面";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 

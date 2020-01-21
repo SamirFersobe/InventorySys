@@ -24,7 +24,8 @@ namespace KaihatsuEnshuu
 
             try
             {
-
+                FillComboBox("BrandName", "BrandId", brandComboBox, "Brands");
+                FillComboBox("CategoryName", "CategoryID", categoryComboBox, "Categories");
                 reloadDataGridView(sqlQuery, dataGridView1);
 
 
@@ -52,24 +53,29 @@ namespace KaihatsuEnshuu
         {
             string name;
             int  price;
-            string brand;
+            int brand;
 
             name = ProductNameMaskedTextBox.Text.ToString();
             price = Convert.ToInt32(productPrice.Text);
-            brand = brandTextBox.Text.ToString();
+            brand = Convert.ToInt32( brandComboBox.SelectedValue) ;
+            int restocking = Convert.ToInt32(restockingPrice.Text);
+            int category = Convert.ToInt32(categoryComboBox.SelectedValue);
+           // MessageBox.Show(brand);
 
 
 
-            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+            string str = DatabaseConnectionString;
             OleDbConnection con = new OleDbConnection(str);
             con.Open();
-            OleDbCommand cmmd = new OleDbCommand("INSERT INTO products(pName,pBrand,pPrice) Values(@Name,@Brand,@Price)", con);
+            OleDbCommand cmmd = new OleDbCommand("INSERT INTO products(pName,Brand,pPrice,restockingPrice,CategoryID) Values(@Name,@Brand,@Price,@rePrice,@Category)", con);
             if(con.State == ConnectionState.Open)
             {
-               cmmd.Parameters.AddWithValue("@Brand",brand );
-               cmmd.Parameters.AddWithValue("@Name", name);
-               cmmd.Parameters.AddWithValue("@Price", price);
-               cmmd.ExecuteNonQuery();
+                cmmd.Parameters.AddWithValue("@Name", name);
+                cmmd.Parameters.AddWithValue("@Brand", brand);
+                cmmd.Parameters.AddWithValue("@Price", price);
+                cmmd.Parameters.AddWithValue("@rePrice", restocking );
+                cmmd.Parameters.AddWithValue("@Category", category);
+                cmmd.ExecuteNonQuery();
 
                 try
                 {

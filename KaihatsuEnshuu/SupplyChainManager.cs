@@ -183,8 +183,56 @@ namespace KaihatsuEnshuu
             }
 
             con.Close();
-            List<StockItem> sortedItemsInStock = itemsInStock.OrderBy(o => o.stockQuantity).ToList();
+
+            OleDbConnection conn = new OleDbConnection(DatabaseConnectionString);
+            OleDbCommand cmmd = new OleDbCommand();
+            conn.Open();
+            cmmd.Connection = conn;
+            cmmd.CommandType = CommandType.Text;
+
             string sqlQueryUpdateValues;
+            
+            foreach (var item in itemsInStock)
+            {
+                if (item.stockQuantity < productQuantity)
+                {
+                    productQuantity = productQuantity - item.stockQuantity;
+                    item.stockQuantity = 0;
+                    sqlQueryUpdateValues = "update stock set quantity = 0 where shop_id = " + item.stockShopID.ToString();
+                    cmmd.CommandText = sqlQueryUpdateValues;
+                   // MessageBox.Show(item.stockQuantity.ToString() + " -   " + productQuantity.ToString() + " and productID = " + productID.ToString());
+                 //   MessageBox.Show("decreasing");
+                    cmmd.ExecuteNonQuery();
+               //     MessageBox.Show("decreas");
+
+                }
+                else
+                {
+                    item.stockQuantity = item.stockQuantity - productQuantity;
+                    sqlQueryUpdateValues = "update stock  set quantity = " + item.stockQuantity.ToString() + " where shop_id = " + item.stockShopID.ToString()+ " and productID = " + productID.ToString();
+                    cmmd.CommandText = sqlQueryUpdateValues;
+                    cmmd.ExecuteNonQuery();
+                    
+                    productQuantity = 0;
+                    
+
+                }
+            }
+
+            con.Close();
+            
+
+
+
+
+
+
+
+
+            /**
+
+            List<StockItem> sortedItemsInStock = itemsInStock.OrderBy(o => o.stockQuantity).ToList();
+          
 
             OleDbConnection conn = new OleDbConnection(DatabaseConnectionString);
             OleDbCommand cmmd = new OleDbCommand();
@@ -196,47 +244,21 @@ namespace KaihatsuEnshuu
             using (conn) { 
             while (productQuantity != 0)
             {
-                    /**
+                    
                      * 
                      * the bug seems to be here , when deleting the productquantity it goes on a sells everything 
                      i dont know why tho. Anyways still gotta fix this so that orders with more than 2 items can be 
                     sent and the program doesn't crash.  mayeb its time to redo the function.
                      * 
   
-                     * */
-                foreach (var item in sortedItemsInStock)
-                {
-                    if (item.stockQuantity < productQuantity)
-                    {
-                        productQuantity = productQuantity - item.stockQuantity;
-                        item.stockQuantity = 0;
-                        sqlQueryUpdateValues = "update stock set quantity = 0 where shop_id = " + item.stockShopID.ToString();
-                        cmmd.CommandText = sqlQueryUpdateValues;
-                            MessageBox.Show(item.stockQuantity.ToString() + "    " + productQuantity.ToString());
-                            MessageBox.Show("decreasing");
-                        cmmd.ExecuteNonQuery();
-                            MessageBox.Show("decreas");
+                     
 
-                        }
-                    else
-                    {
-                        item.stockQuantity = item.stockQuantity - productQuantity;
-                        sqlQueryUpdateValues = "update stock  set quantity = " + item.stockQuantity.ToString() + " where shop_id = " + item.stockShopID.ToString();
-                        cmmd.CommandText = sqlQueryUpdateValues;
-                            MessageBox.Show("decreasing else");
-                        cmmd.ExecuteNonQuery();
-                            MessageBox.Show("decreasing else2");
-                        productQuantity = 0;
-                            break;
-                        
-                    }
-                }
             }
         }
 
             MessageBox.Show("2");
             conn.Close();
-
+        **/
         }
 
         private Boolean CheckParticularOrderStock(string orderIdString)

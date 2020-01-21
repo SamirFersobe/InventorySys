@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Configuration;
+using System.IO;
 
 namespace KaihatsuEnshuu
 {
     public partial class NewOrderForm : Form
     {
+        string DatabaseConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString(), "OI21Database1.accdb");
+       // string DatabaseConnectionString = ConfigurationManager.ConnectionStrings["KaihatsuEnshuu.Properties.Settings.OI21Database1ConnectionString"].ConnectionString;
         public NewOrderForm()
         {
 
@@ -34,8 +38,11 @@ namespace KaihatsuEnshuu
             customerid = comboBox2.SelectedValue.ToString();
 
 
-            
-            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+
+             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+
+          //  string str = DatabaseConnectionString;
+
             OleDbConnection con = new OleDbConnection(str);
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = con;
@@ -71,7 +78,9 @@ namespace KaihatsuEnshuu
         {
             
             DataTable dt = new DataTable();
-            string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+             string str = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\B8328\source\repos\KaihatsuEnshuu\KaihatsuEnshuu\OI21Database1.accdb";
+
+           // string str = DatabaseConnectionString;
             OleDbConnection con = new OleDbConnection(str);
             string sql1 = "SELECT "+ displayMember +  "  , "+valueMember+ " FROM "+ table ;
             con.Open();
