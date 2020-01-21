@@ -185,9 +185,9 @@
             // 
             // AddAllRequiredItems
             // 
-            this.AddAllRequiredItems.Location = new System.Drawing.Point(498, 30);
+            this.AddAllRequiredItems.Location = new System.Drawing.Point(498, 24);
             this.AddAllRequiredItems.Name = "AddAllRequiredItems";
-            this.AddAllRequiredItems.Size = new System.Drawing.Size(150, 42);
+            this.AddAllRequiredItems.Size = new System.Drawing.Size(157, 75);
             this.AddAllRequiredItems.TabIndex = 15;
             this.AddAllRequiredItems.Text = "すべてのアイテムを追加します";
             this.AddAllRequiredItems.UseVisualStyleBackColor = true;
@@ -286,7 +286,7 @@
             this.ClientSize = new System.Drawing.Size(1506, 757);
             this.Controls.Add(this.groupBox2);
             this.Name = "AddStockForm";
-            this.Text = "Add Stock";
+            this.Text = "入荷注文画面";
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);

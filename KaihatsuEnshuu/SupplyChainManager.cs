@@ -137,7 +137,7 @@ namespace KaihatsuEnshuu
                                 DecreaseParticularProductFromStock(item1.productId, item1.productQuantity);
 
                         }
-                        MessageBox.Show("Items Decreased");
+                        //MessageBox.Show("Items Decreased");
 
 
  
