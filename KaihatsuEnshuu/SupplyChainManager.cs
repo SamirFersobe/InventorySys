@@ -406,7 +406,14 @@ namespace KaihatsuEnshuu
 
                 OleDbDataAdapter da = new OleDbDataAdapter(sql1, con);
                 dt1.Clear();
-                da.Fill(dt1);
+                try
+                {
+                    da.Fill(dt1);
+                }
+                catch(Exception ex)
+                {
+
+                }
 
                 dataGridView1.DataSource = dt1;
               //  MessageBox.Show("データロード中");
